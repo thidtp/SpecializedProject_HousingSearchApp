@@ -20,9 +20,7 @@
 header {
     position: relative;
     z-index: 2;
-}
-.search{
-
+    color: white;
 }
 .search-content-items{
     justify-content: space-between;
@@ -66,5 +64,55 @@ header {
     border: none;
     cursor: pointer;
 }
+.hidden-header {
+    display: none;
+}
+/* Định dạng mũi tên */
+.che-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.che {
+    width: 20px;
+    height: 20px;
+    border-left: 4px solid white; /* Đậm và màu trắng */
+    margin: 5px 0;
+    animation: moveDown 1.5s infinite;
+    opacity: 1;
+  }
+  
+  .chev_2 {
+    animation-delay: 0.5s;
+  }
+  
+  .chev_3 {
+    animation-delay: 1s;
+  }
+  
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    75% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
 
   
