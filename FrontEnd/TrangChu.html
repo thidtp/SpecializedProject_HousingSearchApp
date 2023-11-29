@@ -23,33 +23,41 @@
     <script src="https://kit.fontawesome.com/df9599f1db.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.7.1/i18next.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
 </head>
 <body>
   <div class="relative">
-    <div class="header-container fixed top-0 left-0 w-full bg-transparent z-50 transition-all duration-300 ease-in-out">
-        <!-- ... Nội dung của header ... -->
-        <header  >
+    <div class="header-container fixed top-0 left-0 bg-transparent z-50 transition-all duration-300 ease-in-out">
+      <!-- ... Nội dung của header ... -->
+      <header >
         <!-- component -->
-        <!-- follow me on twitter @asad_codes -->
         <div class="flex flex-wrap place-items-start">
           <section class="relative mx-auto">
             <!-- navbar header top -->
-            <nav class="flex justify-between text-white w-screen">
-              <div class="px-5 xl:px-12 py-md-1 mr-200 flex w-full items-center">
+            <nav class="flex justify-between text-white ">
+              <div class="px-5 xl:px-12 py-md-1 mr-200 flex items-center">
                 <ul class="hidden md:flex px-1 mr-auto font-semibold font-heading space-x-10 "></ul>
                 <a class="text-3xl font-bold font-heading mr-120" href="#">
                   <div class="flex items-center ">
-                    <img class="w-20 h-30" src="/Image/logo.png">
+                    <img class="w-25 h-35" src="/Image/logo.png">
                   </div>
                 </a>
                 <!-- Nav Links -->
@@ -62,14 +70,51 @@
                     </svg>
                   </a>
                   <!-- Sign In / Register      -->
+                  <div class="hidden md:flex items-center space-x-5 items-center mr-auto relative" id="navbar">
+                    <a class="hover:text-gray-200" href="#" id="iconLink">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </a>
+                    <!-- Hiển thị khi đã đăng nhập -->
+                    <div class="group relative" id="userDropdown">
+                      <div class="flex items-center cursor-pointer" onclick="toggleDropdown()">
+                        <div class="w-8 h-8 bg-gray-500 rounded-full overflow-hidden">
+                          <!-- Avatar hoặc biểu tượng người dùng -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                          </svg>
+                        </div>
+                        <span class="ml-2">Tên tài khoản</span>
+                      </div>
+                      <!-- Hiển thị khi nhấp vào hình tròn tài khoản -->
+                      <div class="absolute hidden bg-white rounded-md shadow-lg right-0 mt-2 w-64 z-50" id="userDropdownOptions">
+                          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
+                            </svg>
+                            Đăng tin
+                          </a>
+                          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Quản lý tin đăng
+                          </a>
+                          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Thông tin tài khoản
+                          </a>
+                          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Đăng xuất
+                          </a>
+                      </div>
+                    </div>
+                  </div>
                   <a class="flex items-center hover:text-gray-200" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </a>
-                  <a class="flex items-center hover:text-gray-200" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -1 30 30" stroke="currentColor">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path clip-rule="evenodd" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path></g>
                     </svg>
                   </a>
                 </div>
@@ -81,31 +126,72 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </a>
+                <!-- Sign in -->
+                <div class="flex items-center space-x-5 items-center mr-auto relative" id="navbar">
+                  <a class="hover:text-gray-200" href="#" id="iconLink-mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </a>
+                  <!-- Hiển thị khi đã đăng nhập -->
+                  <div class="group relative" id="userDropdown-mobile">
+                    <div class="flex items-center cursor-pointer" onclick="toggleDropdown()">
+                      <div class="w-8 h-8 bg-gray-500 rounded-full overflow-hidden">
+                        <!-- Avatar hoặc biểu tượng người dùng -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                        </svg>
+                      </div>
+                      <span class="ml-2">Tên tài khoản</span>
+                    </div>
+                    <!-- Hiển thị khi nhấp vào hình tròn tài khoản -->
+                    <div class="absolute hidden bg-white rounded-md shadow-lg right-0 mt-2 w-64 z-50" id="userDropdownOptions-mobile">
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
+                          </svg>
+                          Đăng tin
+                        </a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          Quản lý tin đăng
+                        </a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                          Thông tin tài khoản
+                        </a>
+                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                          Đăng xuất
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- Đăng tin -->
                 <a class="hover:text-gray-200" href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </a>
-                <a class="hover:text-gray-200" href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -1 30 30" stroke="currentColor">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path clip-rule="evenodd" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path></g>
                   </svg>
                 </a>
               </div>
             </nav>
           </section>
-          <section class="relative mx-auto">
+          <section class="relative mx-auto nav2-container hide-nav2">
             <!-- navbar 2 -->    
             <nav class="flex justify-between  text-white w-screen">
               <div class="px-5 xl:px-12 py-md-3 flex w-full items-center">
                 <!-- Nav Links -->
-                <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12 justify-center text-2xl" style="font-family:Montserrat,sans-serif;">
+                <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12 justify-center text-2xl">
                   <li><a class="hover:text-gray-200" href="#" >Trang Chủ</a></li>
                   <li><a class="hover:text-gray-200" href="#">Phòng Trọ</a></li>
                   <li><a class="hover:text-gray-200" href="#">Nhà Nguyên Căn</a></li>
                   <li><a class="hover:text-gray-200" href="#">Chung Cư & Căn Hộ</a></li>
                   <li><a class="hover:text-gray-200" href="#">Ở Ghép</a></li>
                   <li><a class="hover:text-gray-200" href="#">Tin Tức</a></li>
+                  <li id="manageSection"><a class="hover:text-gray-200" href="#">Quản Lý</a></li>
                 </ul>
               </div>
               <!-- Responsive navbar -->
@@ -128,9 +214,10 @@
                   <li><a href="#" class="block py-3 hover:text-gray-200">Chung Cư & Căn Hộ</a></li>
                   <li><a href="#" class="block py-3 hover:text-gray-200">Ở Ghép</a></li>
                   <li><a href="#" class="block py-3 hover:text-gray-200">Tin Tức</a></li>
+                  <li id="manageSectionMobile"><a href="#" class="block py-3 hover:text-gray-200">Quản Lý</a></li>
                 </ul>
               </div>
-              <button id="openMenu" class="text-white hover:text-gray-200 md:hidden">
+              <button id="openMenu" class="text-white hover:text-gray-200 md:hidden" style="margin-right: 107px;" >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
@@ -145,245 +232,356 @@
         </div>
       </header>
     </div>
-  
     <div class="swiper-container swiper-bg">
       <div class="swiper-wrapper">
-        <div class="swiper-slide w-screen">
-          <section class="search py-0 max-w-[1400px] rounded-2xl mx-auto backdrop-blur-3xl bg-opacity-150 flex justify-center items-center mt-40" style="margin-top: 400px;">
-              <div class="container mx-auto p-4 rounded-lg">
-                <div class="flex items-center justify-center space-x-4">
-                  <div class="relative flex-1">
-                    <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                      <option value="" disabled selected>Khu Vực</option>
-                      <option value="area1">Khu Vực 1</option>
-                      <option value="area2">Khu Vực 2</option>
-                    </select>
+        <div class="swiper-slide w-screen" style="background-image:url(/Image/house_carousel.jpg);background-size: cover;
+        background-position: center;">
+          <section class="search py-0 max-w-[800px] rounded-2xl mx-auto backdrop-blur-3xl bg-opacity-150 flex justify-center items-center mt-40" style="margin-top: 250px;">
+            <div class="container mx-auto p-4 rounded-lg "> <!-- Adjust max-w-md for the desired maximum width -->
+              <!-- Top Section -->
+              <div class="flex flex-wrap items-center justify-center space-x-4">
+                  <div class="relative flex-1 mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="district">
+                          Quận/Huyện
+                      </label>
+                      <i class="fas fa-building absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+                      <select id="district" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option value="" disabled selected>Chọn Quận/Huyện</option>
+                          <!-- Add district options here -->
+                      </select>
                   </div>
-                  <div class="relative flex-1">
-                    <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                      <option value="" disabled selected>Loại Phòng</option>
-                      <option value="roomType1">Loại Phòng 1</option>
-                      <option value="roomType2">Loại Phòng 2</option>
-                    </select>
+                  <div class="relative flex-1 mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="ward">
+                          Phường/Xã
+                      </label>
+                      <i class="fas fa-home absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+                      <select id="ward" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option value="" disabled selected>Chọn Phường/Xã</option>
+                          <!-- Add ward options here -->
+                      </select>
                   </div>
-                  <div class="relative flex-1">
-                    <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                      <option value="" disabled selected>Giá Tiền</option>
-                      <option value="price1">Giá Tiền 1</option>
-                      <option value="price2">Giá Tiền 2</option>
-                    </select>
+                  <div class="relative flex-1 mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="roomType">
+                          Loại Phòng
+                      </label>
+                      <i class="fas fa-bed absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70% "></i>
+                      <select id="roomType" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option value="" disabled selected>Chọn Loại Phòng</option>
+                          <option value="roomType1">Loại Phòng 1</option>
+                          <option value="roomType2">Loại Phòng 2</option>
+                      </select>
                   </div>
-                  <div class="relative flex-1">
-                    <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                      <option value="" disabled selected>Diện Tích</option>
-                      <option value="areaSize1">Diện Tích 1</option>
-                      <option value="areaSize2">Diện Tích 2</option>
-                    </select>
-                  </div>
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tìm Kiếm</button>
-                </div>
               </div>
-          </section>
-          <div id="crollDown" class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-            <div class="che-container">
-              <div class="che chev_1"></div>
-              <div class="che chev_2"></div>
-              <div class="che chev_3"></div>
+          
+              <!-- Bottom Section -->
+              <div class="flex flex-wrap items-center justify-center space-x-4">
+                  <div class="relative flex-1 mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="price">
+                          Giá Tiền
+                      </label>
+                      <i class="fas fa-dollar-sign absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+                      <select id="price" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option value="" disabled selected>Chọn Giá Tiền</option>
+                          <option value="price1">Giá Tiền 1</option>
+                          <option value="price2">Giá Tiền 2</option>
+                      </select>
+                  </div>
+                  <div class="relative flex-1 mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="areaSize">
+                          Diện Tích
+                      </label>
+                      <i class="fas fa-expand absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+                      <select id="areaSize" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option value="" disabled selected>Chọn Diện Tích</option>
+                          <option value="areaSize1">Diện Tích 1</option>
+                          <option value="areaSize2">Diện Tích 2</option>
+                      </select>
+                  </div>
+              </div>
+          
+              <!-- Search Button -->
+              <div class="flex justify-center">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tìm Kiếm</button>
+              </div>
             </div>
+          
+          </section>
+          <div class="container_2">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
           </div>
         </div>
       </div>
     </div> 
   </div>
-    <!-- component -->
-    <div class="text-center font-Montserrat py-5">
-      <h1 class="text-gray-300 text-[50px]">
-        <span class="border-l-2 border-r-2 border-dashed px-4">ĐỊA ĐIỂM NỔI BẬT</span>
-      </h1>
-      <div class="mt-3">
-        <img src="/Image/decor.png" alt="decor" class="w-16 h-16 mx-auto">
-      </div>
-    </div>
-    <div class="container mx-auto p-4  flex items-start justify-center">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Blog Entry 1 -->
-        <div class="w-32 h-200 mx-auto relative shadow-md rounded-lg cursor-pointer">
-          <a href="https://phongtro123.com/tinh-thanh/ho-chi-minh">
-            <img src="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Img by Meriç Dağlı https://unsplash.com/@meric" class="w-full h-auto object-cover rounded-lg">
-            <div class="absolute bottom-0 left-0 right-0 h-16 bg-black bg-opacity-50 backdrop-blur text-white p-2 rounded-b-lg">
-              <h1 class="text-md-center font-semibold">Phòng Trọ Hồ Chí Minh</h1>
-            </div>
-          </a>
-        </div>
-        <!-- Blog Entry 2 -->
-        <div class="w-32 h-200 mx-auto relative shadow-md rounded-lg cursor-pointer">
-          <a href="https://phongtro123.com/tinh-thanh/ha-noi">
-            <img src="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Img by Meriç Dağlı https://unsplash.com/@meric" class="w-full h-auto object-cover rounded-lg">
-            <div class="absolute bottom-0 left-0 right-0 h-16 bg-black bg-opacity-50 backdrop-blur text-white p-2 rounded-b-lg">
-              <h1 class="text-md-center font-semibold">Phòng Trọ Hà Nội</h1>
-            </div>
-          </a> 
-        </div>
-        <!-- Blog Entry 3 -->
-        <div class="w-32 h-200 mx-auto relative shadow-md rounded-lg cursor-pointer">
-          <a href="https://phongtro123.com/tinh-thanh/da-nang">
-            <img src="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Img by Meriç Dağlı https://unsplash.com/@meric" class="w-full h-auto object-cover rounded-lg">
-            <div class="absolute bottom-0 left-0 right-0 h-16 bg-black bg-opacity-50 backdrop-blur text-white p-2 rounded-b-lg">
-              <h1 class="text-md-center font-semibold">Phòng Trọ Đà Nẵng</h1>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- component -->
-    
+  <!-- component -->
+  <main class="max-w-[13	00px] mx-auto">
     <section class="product-rent bg-white-100 py-8">
-      <div class="container mx-auto">
-        <div class="text-center font-Montserrat py-5">
-          <h1 class="text-gray-300 text-[50px]">
-            <span class="border-l-2 border-r-2 border-dashed px-4">TIN MỚI NHẤT</span>
-          </h1>
-          <div class="mt-3">
-            <img src="/Image/decor.png" alt="decor" class="w-16 h-16 mx-auto">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mr-20 ml-20">
+          <div class="md:col-span-3">
+            <div class="article-category mt-3">
+              <div class="flex items-center">
+                <a href="javascript:void();" class="text-xl font-bold uppercase"><span>Tin đăng mới nhất</span></a></div>
+                <hr class="my-2">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+              <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
+                <div class="product-rent-content-item-img relative">
+                  <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                  <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                    <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
+                  </div>
+                  <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                </div>
+                <div class="product-rent-content-item-text">
+                  <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
+                  <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                  <p><i class="fas fa-home"></i> Phòng Trọ</p>
+                </div>
+              </a>
+            </div>
+            <div class="article-category mt-3">
+              <div class="flex items-center">
+                <a href="javascript:void();" class="text-xl font-bold uppercase"><span>Tin tức mới nhất</span></a>
+                <a href="javascript:void();" class="text-md uppercase ml-auto hover:text-red-500"><span>Xem tất cả </span></a>
+              </div>
+                <hr class="my-2">
+            </div>
+            <!--Phần Tin tức-->
+            <div class="w-full mt-3 bg-gray-100 rounded-lg shadow-md overflow-hidden">
+              <div class="relative">
+                <div class="flex-shrink-0 overflow-hidden" style="width: 100%; overflow-x: hidden;">
+                  <div id="news-wrapper" class="flex transition-transform duration-300 ease-in-out" style="white-space: nowrap;">
+                    <!-- Tin tức 1 -->
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 1</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <!-- Tin tức 2 -->
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 2</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 3</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 4</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 5</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 6</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 7</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 8</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 9</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <div class="news-item w-full border rounded p-4 mb-4 mt-4 ml-9" style="width: 300px; flex-shrink: 0;">
+                      <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
+                      <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Tiêu đề tin tức 10</h2>
+                        <p class="text-gray-600">Nội dung tin tức 1...</p>
+                      </div>
+                    </div>
+                    <!-- ... (Tương tự cho các tin tức khác) -->
+                  </div>
+                </div>
+                <!-- Nút điều hướng -->
+                <div class="absolute top-1/2 -mt-2 flex justify-between w-full">
+                  <button class="text-2xl text-gray-700 focus:outline-none" onclick="prevSlide()">◄</button>
+                  <button class="text-2xl text-gray-700 focus:outline-none" onclick="nextSlide()">►</button>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="md:col-span 1">
+              <div class="grid grid-cols-1 gap-4">
+                <div class="col-span-1">
+                  <div class="sidebar-ads">
+                    <img class="w-full h-auto" src="/Image/decor1.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-span-1">
+                  <div class="sidebar-social">
+                  </div>
+                </div>
+                <div class="col-span-1">
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="col-span-1">
+                      <div class="sidebar-ads">
+                        <img class="w-full h-auto" src="/Image/decor2.jpg" alt="">
+                      </div>
+                    </div>
+                  <div class="col-span-1">
+                    <div class="sidebar-ads">
+                      <img class="w-full h-auto" src="/Image/decor3.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <!-- Thêm các sản phẩm khác tại đây -->
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
-          <a href="#" class="block bg-white p-6 rounded-lg shadow-md relative">
-            <div class="product-rent-content-item-img relative">
-              <img src="/Image/anhtro.jpeg"" alt="Product Image" class="w-full h-48 object-cover mb-4">
-              <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
-                <p class="font-bold text-xl">1.000.000<sup>đ</sup>/ tháng</p>
-              </div>
-              <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
-            </div>
-            <div class="product-rent-content-item-text">
-              <h1 class="text-xl font-bold mb-2">Căn hộ dịch vụ - phòng ngủ</h1>
-              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
-              <p><i class="fas fa-home"></i> Phòng Trọ</p>
-            </div>
-          </a>
         </div>
       </div>
     </section>
-    
-    <footer class="bg-black text-white" ,style=" position: sticky">
+  </main>
+  
+  <footer class="bg-black text-white" ,style=" position: sticky">
       <div class="relative mt-16 ">
         <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
@@ -450,59 +648,14 @@
           </div>
         </div>
       </div>
-    </footer>
-    <button id="scrollToTop" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-      </svg>
-    </button>
-    <script>
-     document.getElementById('scrollToTop').addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });});
-    </script>
-    <script>
-      const openMenuButton = document.getElementById('openMenu');
-      const closeMenuButton = document.getElementById('closeMenu');
-      const openRightMenuButton = document.getElementById('openRightMenu');
-      const contentMenuMobile = document.getElementById('contentMenuMobile');
-
-      openMenuButton.addEventListener('click', () => {
-        contentMenuMobile.classList.remove('transform', 'translate-x-full');
-        openRightMenuButton.classList.remove('hidden');
-      });
-
-      closeMenuButton.addEventListener('click', () => {
-        contentMenuMobile.classList.add('transform', 'translate-x-full');
-        openRightMenuButton.classList.add('hidden');
-      });
-
-      openRightMenuButton.addEventListener('click', () => {
-        
-      });
-    </script>
-    <script>
-      const headerContainer = document.querySelector('.header-container');
-      let isHeaderSticky = false;
-  
-      window.addEventListener('scroll', () => {
-          console.log('Scroll Y:', window.scrollY);
-          if (window.scrollY > 0 && !isHeaderSticky) {
-              console.log('Sticky Header Activated');
-              headerContainer.classList.remove('bg-transparent', 'text-white');
-              headerContainer.classList.add('bg-rose-400', 'text-black','shadow-light');
-              isHeaderSticky = true;
-          } else if (window.scrollY === 0 && isHeaderSticky) {
-              console.log('Sticky Header Deactivated');
-              headerContainer.classList.remove('bg-rose-400', 'text-black');
-              headerContainer.classList.add('bg-transparent', 'text-white');
-              isHeaderSticky = false;
-          }
-      });
-  </script>
-  
-  
-  
-  
-    
+  </footer>
+  <button id="scrollToTop" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nouislider@16.2.2/distribute/nouislider.min.js"></script>
+  <script src="TrangChu.js"></script>
 </body>
 </html>

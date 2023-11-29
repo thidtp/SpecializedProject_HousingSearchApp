@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="myheader">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-5 ">LOGO</div>
+                <div class="col-md-4 "><div class="input-group md">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa-solid fa-magnifying-glass"></i></span>
+                  </div></div>
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="fs-3 ">
+                                        <i class="fa-regular fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="col-9"><a> Tạo tài khoản </a> <br>
+                                    <strong>Đăng Nhập</strong>
+                                </div>
+                        </div></div>
+                    
+                    </div>
+                </div>
+            </div>   
+         </div>
+
+    </section>
+    <!--myheader-->
+    <section class="mymainmenu text-white-50 bg-dark">
+        <nav class="navbar navbar-expand-lg text-white-50 bg-body-dark ">
+            <div class="container py ">
+              <a class="navbar-brand d-none" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                
+                    <a class="nav-link active text-white" aria-current="page" href="#">Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Phòng trọ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Tin tức</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled text-white" aria-disabled="true">Liên hệ</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </section>
+    <section class="mymaincontent ">
+      <div class="container py-3">
+        <div class="row">
+
+            <div class="col-md-6">Phòng Trọ, Nhà Trọ</div>
+            <div class="col-2">
+              <div class="input-group mb">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Chọn khu vực</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+            </div>
+            <div class="col-md-2"> 
+              <div class="input-group mb">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sắp xếp theo giá</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+              </div>
+        </div>
+        <div class="col-md-2"> 
+          <div class="input-group mb">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sắp xếp theo thời gian</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Mới nhất</a></li>
+              <li><a class="dropdown-item" href="#">Cũ nhất</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+        </div> 
+        <hr>
+        <div class="row">
+          <div class="col-md-6"> Tìm kiếm nâng cao: </div>
+          <div class="col-md-20  ">
+            <div class="container py-2">
+              <div class="form-group">
+                <select class="form-control" id="combo-box">
+                   <option value="" disabled selected> Chọn tỉnh, thành phố </option>
+                  <option value="option2">Tùy chọn 2</option>
+                  <option value="option3">Tùy chọn 3</option>
+                  <option value="option4">Tùy chọn 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-20  ">
+              <div class="container ">
+                <div class="form-group">
+                  <select class="form-control" id="combo-box">
+                    <option value="" disabled selected> Chọn quận, huyện </option>
+                    <option value="option2">Tùy chọn 2</option>
+                    <option value="option3">Tùy chọn 3</option>
+                    <option value="option4">Tùy chọn 4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-20  ">
+                <div class="container ">
+                  <div class="form-group">
+                    <select class="form-control" id="combo-box">
+                      <option value="" disabled selected> Chọn phường xã </option>
+                      <option value="option2">Tùy chọn 2</option>
+                      <option value="option3">Tùy chọn 3</option>
+                      <option value="option4">Tùy chọn 4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-20 ">
+                  <div class="container ">
+                    <div class="form-group">
+                      <select class="form-control" id="combo-box">
+                        <option value="" disabled selected> Chọn đường </option>
+                        <option value="option2">Tùy chọn 2</option>
+                        <option value="option3">Tùy chọn 3</option>
+                        <option value="option4">Tùy chọn 4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-20  ">
+                    <div class="container ">
+                      <div class="form-group">
+                        <select class="form-control" id="combo-box">
+                          <option value="" disabled selected> Chọn loại phòng </option>
+                          <option value="option2">Tùy chọn 2</option>
+                          <option value="option3">Tùy chọn 3</option>
+                          <option value="option4">Tùy chọn 4</option>
+                        </select>
+                      </div>
+                    </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="minValue">Giá trị tối thiểu:</label>
+                      <input type="text" id="minValue" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="maxValue">Giá trị tối đa:</label>
+                      <input type="text" id="maxValue" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="slider"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Include jQuery and jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Include jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script>
+  $(function() {
+    var minValueInput = $("#minValue");
+    var maxValueInput = $("#maxValue");
+    
+    $("#slider").slider({
+      range: true,
+      min: 0,
+      max: 999999999, // Thay 100 bằng giá trị tối đa tùy ý
+      values: [0, 99999999999],
+      slide: function(event, ui) {
+        minValueInput.val(ui.values[0]);
+        maxValueInput.val(ui.values[1]);
+      }
+    });
+
+    // Sự kiện thay đổi trong ô văn bản tối thiểu
+    minValueInput.on("input", function() {
+      var minValue = parseInt($(this).val());
+      var maxValue = parseInt(maxValueInput.val());
+
+      if (minValue < 0) {
+        minValue = 0;
+      } else if (minValue > maxValue) {
+        minValue = maxValue;
+      }
+
+      $(this).val(minValue);
+      $("#slider").slider("values", 0, minValue);
+    });
+
+    // Sự kiện thay đổi trong ô văn bản tối đa
+    maxValueInput.on("input", function() {
+      var minValue = parseInt(minValueInput.val());
+      var maxValue = parseInt($(this).val());
+
+      if (maxValue < minValue) {
+        maxValue = minValue;
+      } else if (maxValue > MAX) { // Thay 100 bằng giá trị tối đa tùy ý
+        maxValue = MAX;
+      }
+
+      $(this).val(maxValue);
+      $("#slider").slider("values", 1, maxValue);
+    });
+  });
+</script>
+<div class="container text-center py-3">
+<button type="button" class="btn btn-primary md-3"> Tìm kiếm </button>
+</div>
+
+            <div class="col-md-200 "><div class="product-list py-3">
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <img src="image/phong1.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i> Phòng Trọ</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong2.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i>  Ký túc xá</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong1.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i> Phòng Trọ</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong2.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i>  Ký túc xá</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong1.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i> Phòng Trọ</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong2.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i> Ký túc xá</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong1.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini</h4>
+              <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+              <p><i class="fas fa-home"></i> Phòng Trọ</p>
+            </div>
+            <div class="col-md-3">
+              <img src="image/phong2.jpg" class="img-fluid">
+              <h4> Phòng trọ - ký túc xá mini </h4>
+              <div class="product-rent-content-item-text">
+                <p><i class="fas fa-map-marker-alt"></i> Quận 2, Hồ Chí Minh</p>
+                <p><i class="fas fa-home"></i> Ký túc xá</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      <section class="myfooter bg-dark text-white ">
+          <div class="container py-3">
+          <div class="row"></div>
+              <div class="col-md-3"></div>
+                  <h4>Thông tin liên hệ </h4>
+          <hr>
+          <div class="row"> © Copyright 2020 Lorem Inc. All rights reserved.
+          </div>
+        </div>
+      </section>
+      <script src="js/bootstrap.min.css"></script>
+  </body>
+  </html>

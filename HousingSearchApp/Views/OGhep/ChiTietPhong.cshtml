@@ -1,0 +1,347 @@
+﻿@model HousingSearchApp.Models.PHONG
+@{
+    ViewBag.Title = "ChiTietPhong";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div class="container mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mr-20 ml-20">
+        <div class="md:col-span-2">
+            <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex">
+                <div class="container mx-auto">
+                    <div class="flex items-center justify-center h-full">
+                        <ol class="flex breadcrumb p-0 m-0">
+                            <li><a href="~/Home/Index" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                            <li class="mx-1">
+                                <span class="content-slash px-2 text-black text-sm">/</span>
+                            </li>
+                            <li><a href="~/OGhep/Index" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Ở Ghép</a></li>
+                            <li class="mx-1">
+                                <span class="content-slash px-2 text-black text-sm">/</span>
+                            </li>
+                            <li class="font-bold text-black font-Montserrat text-sm self-center"><a href="#" class="hover:text-red-500">@Model.TIEUDE</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            <div class="article-category mt-3">
+                <div class="flex items-center">
+                    <a href="javascript:void();" class="text-xl font-bold"><span>@Model.TIEUDE</span></a>
+                </div>
+                <hr class="my-2">
+            </div>
+            <div class="border border-gray-300 mt-4 text-sm">
+                <div class="flex">
+                    <div class="w-8/12 pr-4 ">
+                        <div class="mb-0 info-group p-4 rounded border border-gray-200 relative">
+                            <span class="bg-rose-400 text-white text-center py-4 px-3 -mb-2 absolute top-0 left-0 inline-block w-36">
+                                <i class="fas fa-map-marker-alt"></i> Địa chỉ
+                            </span>
+                            <p class="ml-40 text-black">@Model.DIACHI</p>
+                        </div>
+                        <div class="mb-0 info-group p-4 rounded border border-gray-200 relative">
+                            <span class="bg-rose-400 text-white text-center py-4 px-3 -mb-2 absolute top-0 left-0 inline-block w-36">
+                                <i class="fas fa-expand"></i> Diện tích
+                            </span>
+                            <p class="ml-40">@Model.DIENTICH</p>
+                        </div>
+                        <div class="mb-0 info-group p-4 rounded border border-gray-200 relative">
+                            <span class="bg-rose-400 text-white text-center py-4 px-3 -mb-2 absolute top-0 left-0 inline-block w-36">
+                                <i class="fas fa-home"></i> Loại phòng
+                            </span>
+                            <a href="" class="ml-40">@Model.LOAIPHONG.TENLP</a>
+                        </div>
+                        <div class="mb-0 info-group p-4 rounded border border-gray-200 relative">
+                            <span class="bg-rose-400 text-white text-center py-4 px-3 -mb-2 absolute top-0 left-0 inline-block w-36">
+                                <i class="fas fa-cogs"></i> Tiện ích
+                            </span>
+                            <p class="ml-40 text-black">@Model.TIENICH</p>
+                        </div>
+                    </div>
+                    <div class="w-4/12 pl-4 bg-rose-400 text-white">
+                        <div class="mb-0 mt-3">
+                            <p><i class="fas fa-phone"></i> Thông tin liên hệ</p>
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <hr class="border-t-2 border-gray-300">
+                        </div>
+                        <div class="mb-4">
+                            <p><i class="fas fa-dollar-sign"></i>@Model.GIATHUE</p>
+                        </div>
+                        <div class="mb-4">
+                            <a href=""><i class="fas fa-user"></i>@Model.NGUOIDUNG.TENND</a>
+                        </div>
+                        <div class="mb-4">
+                            <p><i class="fas fa-mobile-alt"></i>@Model.NGUOIDUNG.SDT</p>
+                        </div>
+                        <div class="mb-4">
+                            <a href="#" class="btn btn-save-room bg-blue-200 hover:bg-blue-300 text-black transition-colors">Yêu Thích</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container main-swiper mx-auto mt-4 h-[400px] w-full z-[1] overflow-hidden relative">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @foreach (var hinhAnh in Model.HINHANHs)
+                    {
+                        <div class="swiper-slide p-4"><img src="~/Image/DuLieu/@hinhAnh.TENFILEANH " alt="Slide 1"></div>
+                    }
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- Thêm Swiper container cho Thumbnails -->
+            <div class="swiper-container thumbs-swiper mx-auto mt-4 h-[100px] w-full z-[1] overflow-hidden">
+                <div class="swiper-wrapper">
+                    <!-- Thumbnails -->
+                    @{
+                        int count_index = 0;
+                    }
+                    @foreach (var hinhAnh in Model.HINHANHs)
+                    {
+                        <div class="swiper-slide p-1" onclick="goToSlide(@count_index)">
+                            <div class="thumbnail-item overflow-hidden h-[80px] border-4 border-transparent" id="thumbnail1">
+                                <img src="~/Image/DuLieu/@hinhAnh.TENFILEANH" alt="Thumbnail 1" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        count_index++;
+                    }
+                </div>
+            </div>
+            <div class="article-category mt-3">
+                <div class="flex items-center">
+                    <p href="javascript:void();" class="text-xl font-bold"><span>THÔNG TIN MÔ TẢ</span></p>
+                </div>
+                <hr class="my-2">
+            </div>
+            <div class="p-4 bg-gray-200">
+                @Model.MOTA
+            </div>
+            <div class="article-category mt-3">
+                <div class="flex items-center">
+                    <p href="javascript:void();" class="text-xl font-bold"><span>BÌNH LUẬN</span></p>
+                </div>
+                <hr class="my-2">
+            </div>
+
+            <!-- Ô văn bản để ghi nội dung bình luận -->
+            <textarea class="w-full h-32 px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Nhập nội dung bình luận"></textarea>
+
+            <!-- Đánh giá 5 ngôi sao -->
+            <div class="flex items-center mt-2 space-x-2">
+                <p>Đánh giá : </p>
+                <span class="text-2xl cursor-pointer" onclick="rate(1)" id="star1">&#9733;</span>
+                <span class="text-2xl cursor-pointer" onclick="rate(2)" id="star2">&#9733;</span>
+                <span class="text-2xl cursor-pointer" onclick="rate(3)" id="star3">&#9733;</span>
+                <span class="text-2xl cursor-pointer" onclick="rate(4)" id="star4">&#9733;</span>
+                <span class="text-2xl cursor-pointer" onclick="rate(5)" id="star5">&#9733;</span>
+            </div>
+
+            <!-- Nút Bình luận -->
+            <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Bình luận</button>
+
+            <!-- Phần bình luận đã có -->
+            <div class="mt-8 border p-4 rounded">
+                <!-- Mỗi phần bình luận -->
+                @foreach (var danhGia in Model.DANHGIA_PHONG)
+                {
+                    <div class="flex items-start mb-4">
+                        <!-- Ảnh đại diện -->
+                        <div class="rounded-full overflow-hidden w-12 h-12">
+                            <img src="~/Image/DuLieu/NguoiDung/@Model.NGUOIDUNG.TENFILEANH" alt="Avatar" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Thông tin người dùng và đánh giá -->
+                        <div class="ml-4 flex-grow">
+                            <!-- Tên người dùng và đánh giá ngôi sao -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold">@danhGia.NGUOIDUNG.TENND</p>
+                                    <div class="flex items-center space-x-2 mt-1">
+                                        @for (int i = 0; i < danhGia.DANHGIA; i++)
+                                        {
+                                            <span class="text-2xl text-yellow-500">&#9733;</span>
+                                        }
+                                    </div>
+                                </div>
+                                <!-- Nút tùy chọn (Sửa, Xóa) -->
+                                <div class="relative">
+                                    <button class="text-gray-600 focus:outline-none" id="optionsButton">
+                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <!-- Nút tùy chọn hiển thị khi nhấp vào nút optionsButton -->
+                                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg invisible" id="optionsDropdown">
+                                        <button class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Sửa</button>
+                                        <button class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Xóa</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Nội dung bình luận -->
+                            <p class="mt-2">@danhGia.BINHLUAN</p>
+                        </div>
+                    </div>
+                }
+                <!-- Thêm các phần bình luận khác tương tự nếu cần -->
+            </div>
+        </div>
+        <div class="md:col-span-1">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="col-span-1">
+                    <div class="search-container bg-gray-200 p-4">
+                        <div class="advance-search">
+                            <div class="title">
+                                <a id="submit_search" href="javascript:void(0);">
+                                    <span class="fa fa-search"></span>
+                                </a>Tìm kiếm nâng cao
+                            </div>
+                            <div class="shr mt-2">
+                                <hr class="border-t-2 border-gray-300">
+                            </div>
+                            <form class="form" id="search_form" action="http://phongtot.vn/tim-kiem" method="GET">
+                                <div class="form-group tp">
+                                    <label for="province" class="block text-sm font-medium text-gray-700">Tỉnh/Thành phố</label>
+                                    <select id="province" name="province" class="form-select">
+                                        <option value="" disabled selected hidden>Chọn Tỉnh/Thành phố</option>
+                                        <option value="79">Hồ Chí Minh</option>
+                                        <option value="1">Hà Nội</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="district" class="block text-sm font-medium text-gray-700">Quận/Huyện</label>
+                                    <select id="district" name="district" class="form-select">
+                                        <option value="" disabled selected hidden>Chọn Quận/Huyện</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ward" class="block text-sm font-medium text-gray-700">Phường/Xã</label>
+                                    <div id="ward-container" class="checkbox-container border rounded p-3 mb-2 bg-white">
+                                        <span>Chọn Phường/Xã</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-gray-700">Loại phòng</label>
+                                    <div class="mt-1">
+                                        <div id="roomTypesContainer" class="flex flex-wrap border rounded p-3 mb-2 bg-white"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group price">
+                                    <label class="block text-sm font-medium text-gray-700">Chọn khoảng giá</label>
+                                    <div id="price_range" class="range-slider mt-4"></div>
+                                    <div class="flex justify-between mt-2">
+                                        <span id="price_min" class="text-sm text-gray-600">0 triệu</span>
+                                        <span id="price_max" class="text-sm text-gray-600">50 triệu</span>
+                                    </div>
+                                </div>
+                                <div class="form-group submit">
+                                    <button type="submit" class="btn btn-slide-search">
+                                        <span class="fa fa-search"></span>Tìm kiếm
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-ads">
+                        <img class="w-full h-auto" src="http://ngoaingu.net/themes/client/img/ads1.png" alt="">
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-social"></div>
+                </div>
+                <div class="col-span-1">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="http://media.phongtot.vn/xc5tx4cj/ads-3-min.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="http://media.phongtot.vn/xc5tx4cj/ads-4-min.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var mainSwiper = new Swiper('.main-swiper', {
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000, // 5 giây
+                disableOnInteraction: false,
+            },
+        });
+
+        var thumbsSwiper = new Swiper('.thumbs-swiper', {
+            slidesPerView: 3,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+        });
+
+        mainSwiper.controller.control = thumbsSwiper;
+        thumbsSwiper.controller.control = mainSwiper;
+
+        thumbsSwiper.on('click', function (e) {
+            var clickedIndex = e.clickedIndex;
+            mainSwiper.slideTo(clickedIndex);
+            updateThumbnailHighlight(clickedIndex);
+        });
+
+        mainSwiper.on('slideChange', function () {
+            var activeIndex = mainSwiper.activeIndex;
+            updateThumbnailHighlight(activeIndex);
+        });
+
+        function updateThumbnailHighlight(index) {
+            // Đặt tất cả các thumbnail về trạng thái ban đầu
+            document.getElementById('thumbnail1').classList.remove('border-blue-500');
+            document.getElementById('thumbnail2').classList.remove('border-blue-500');
+            document.getElementById('thumbnail3').classList.remove('border-blue-500');
+
+            // Áp dụng khung viền cho thumbnail tương ứng với ảnh hiện tại
+            document.getElementById('thumbnail' + (index + 1)).classList.add('border-blue-500');
+        }
+    });
+</script>
+<script>
+    // Hàm để xử lý đánh giá ngôi sao
+    function rate(stars) {
+        // Đặt tất cả các ngôi sao thành màu đen trước
+        for (let i = 1; i <= 5; i++) {
+            const star = document.getElementById(`star${i}`);
+            star.classList.remove('text-yellow-500');
+        }
+
+        // Tô màu vàng cho số lượng ngôi sao tương ứng
+        for (let i = 1; i <= stars; i++) {
+            const star = document.getElementById(`star${i}`);
+            star.classList.add('text-yellow-500');
+        }
+
+        // Thực hiện hành động xử lý đánh giá ở đây
+        console.log("Đánh giá: " + stars);
+    }
+
+    // Xử lý hiển thị dropdown khi nhấp vào nút optionsButton
+    document.getElementById('optionsButton').addEventListener('click', function () {
+        const dropdown = document.getElementById('optionsDropdown');
+        dropdown.classList.toggle('invisible');
+    });
+</script>
+

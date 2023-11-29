@@ -1,0 +1,66 @@
+﻿<!-- Adjust max-w-md for the desired maximum width -->
+<!-- Top Section -->
+<div class="flex flex-wrap items-center justify-center space-x-4">
+    <div class="relative flex-1 mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="district">
+            Quận/Huyện
+        </label>
+        <i class="fas fa-building absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+        <select id="district" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="" disabled selected>Chọn Quận/Huyện</option>
+            @Html.Partial("getQuanHuyenPartial")
+            <!-- Add district options here -->
+        </select>
+    </div>
+    <div class="relative flex-1 mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="ward">
+            Phường/Xã
+        </label>
+        <i class="fas fa-home absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+        <select id="ward" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="" disabled selected>Chọn Phường/Xã</option>
+            <!-- Add ward options here -->
+        </select>
+    </div>
+    <div class="relative flex-1 mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="roomType">
+            Loại Phòng
+        </label>
+        <i class="fas fa-bed absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70% "></i>
+        <select id="roomType" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="" disabled selected>Chọn Loại Phòng</option>
+            <option value="roomType1">Loại Phòng 1</option>
+            <option value="roomType2">Loại Phòng 2</option>
+        </select>
+    </div>
+</div>
+<!-- Bottom Section -->
+<div class="flex flex-wrap items-center justify-center space-x-4">
+    <div class="relative flex-1 mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="price">
+            Giá Tiền
+        </label>
+        <i class="fas fa-dollar-sign absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+        <select id="price" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="" disabled selected>Chọn Giá Tiền</option>
+            <option value="price1">Giá Tiền 1</option>
+            <option value="price2">Giá Tiền 2</option>
+        </select>
+    </div>
+    <div class="relative flex-1 mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2 text-center" for="areaSize">
+            Diện Tích
+        </label>
+        <i class="fas fa-expand absolute left-1 top-1/2 transform -translate-y-1/2 text-gray-400" style="top: 70%"></i>
+        <select id="areaSize" class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="" disabled selected>Chọn Diện Tích</option>
+            <option value="areaSize1">Diện Tích 1</option>
+            <option value="areaSize2">Diện Tích 2</option>
+        </select>
+    </div>
+</div>
+
+<!-- Search Button -->
+<div class="flex justify-center">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tìm Kiếm</button>
+</div>

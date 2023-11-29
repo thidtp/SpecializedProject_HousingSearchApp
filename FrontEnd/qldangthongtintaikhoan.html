@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="qldangthongtintaikhoan.css">
+    <title>Quản lý tài khoản</title>
+</head>
+<body>
+    <div class="container ">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Quản lý đăng thông tin cá nhân</a></li>
+                <li><a href="#">Thoát</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Cập nhật thông tin cá nhân</h1>
+            <form>
+                <label for="id">Mã thành viên:</label>
+                <input type="id" id="id" name="id" required>
+
+                <label for="phone">Số diện thoại:</label>
+                <input type="phone" id="phone" name="phone" required>
+
+                <label for="display-name">Tên hiển thị:</label>
+                <input type="text" id="display-name" name="display-name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="zalo">Số Zalo:</label>
+                <input type="tel" id="zalo" name="zalo" pattern="[0-9]{9,11}" placeholder="Số điện thoại Zalo" required>
+
+                <label for="facebook">Facebook:</label>
+                <input type="url" id="facebook" name="facebook" placeholder="URL Facebook" required> 
+
+                <label for="pass">Mật khẩu: 
+                <a href="#">Đổi mật khẩu</a>
+                </label> <br>
+
+                <label for="avt">Ảnh đại diện: </label>
+                <div class="avatar-container">
+                <img src="img/avt.png" alt="Ảnh đại diện">
+                </div>
+                <div class="upload-btn-wrapper" >
+                <button class="btn">Chọn ảnh đại diện</button>
+                <input type="file" name="avatar" accept="image/*" />  
+                </div> <br>
+
+                <button type="submit">Lưu và cập nhật</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

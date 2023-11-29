@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ</title>
+    <title>Phòng Trọ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="TrangChu.css">
+    <link rel="stylesheet" href="pagination.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
@@ -27,6 +28,7 @@
     <script src="https://kit.fontawesome.com/df9599f1db.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
     <!-- Font Awesome -->
@@ -404,7 +406,26 @@
           </div>
         </div>
         </div>
+        <div class="pagination " >
+          <span class="pagination__number-indicator"></span>
+          <button class="pagination__arrow">
+            <span class="pagination__arrow-half"></span>
+            <span class="pagination__arrow-half"></span>
+          </button>
+          <button class="pagination__number">1</button>
+          <button class="pagination__number">2</button>
+          <button class="pagination__number">3</button>
+          <button class="pagination__number pagination__number--active">4</button>
+          <button class="pagination__number">5</button>
+          <button class="pagination__number">6</button>
+          <button class="pagination__number">7</button>
+          <button class="pagination__arrow pagination__arrow--right">
+            <span class="pagination__arrow-half"></span>
+            <span class="pagination__arrow-half"></span>
+          </button>
+        </div>
     </section>
+    
     <footer class="bg-black text-white" ,style=" position: sticky">
       <div class="relative mt-16 ">
         <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -479,6 +500,92 @@
       </svg>
     </button>
     <script>
+      const pagination = document.querySelector('.pagination')
+
+if (pagination) {
+  const paginationNumbers = document.querySelectorAll('.pagination__number')
+  let paginationActiveNumber = document.querySelector('.pagination__number--active')
+  const paginationNumberIndicator = document.querySelector('.pagination__number-indicator')
+  const paginationLeftArrow = document.querySelector('.pagination__arrow:not(.pagination__arrow--right)')
+  const paginationRightArrow = document.querySelector('.pagination__arrow--right')
+
+  const postionIndicator = (element) => {
+    const paginationRect = pagination.getBoundingClientRect()
+    const paddingElement = parseInt(window.getComputedStyle(element, null).getPropertyValue('padding-left'), 10)
+    const elementRect = element.getBoundingClientRect()
+    paginationNumberIndicator.style.left = `${elementRect.left + paddingElement - paginationRect.left}px`
+    paginationNumberIndicator.style.width = `${elementRect.width - paddingElement * 2}px`
+    if(element.classList.contains('pagination__number--active')) {
+      paginationNumberIndicator.style.opacity = 1
+    } else {
+      paginationNumberIndicator.style.opacity = .2
+    }
+  }
+
+  const setActiveNumber = (element) => {
+    if (element.classList.contains('pagination__number--active')) return
+    element.classList.add('pagination__number--active')
+    paginationActiveNumber.classList.remove('pagination__number--active')
+    paginationActiveNumber = element
+    setArrowState()
+  }
+
+  const disableArrow = (arrow, disable) => {
+    if (
+      (!disable && !arrow.classList.contains('pagination__arrow--disabled')) ||
+      (disable && arrow.classList.contains('pagination__arrow--disabled'))
+    )
+      return
+    if (disable) {
+      arrow.classList.add('pagination__arrow--disabled')
+    } else {
+      arrow.classList.remove('pagination__arrow--disabled')
+    }
+  }
+
+  const setArrowState = () => {
+    const previousElement = paginationActiveNumber.previousElementSibling
+    const nextElement = paginationActiveNumber.nextElementSibling
+    if(previousElement.classList.contains('pagination__number')) {
+      disableArrow(paginationLeftArrow, false)
+    } else {
+      disableArrow(paginationLeftArrow, true)
+    }
+
+    if(nextElement.classList.contains('pagination__number')) {
+      disableArrow(paginationRightArrow, false)
+    } else {
+      disableArrow(paginationRightArrow, true)
+    }
+  }
+
+  paginationLeftArrow.addEventListener('click', () => {
+    setActiveNumber(paginationActiveNumber.previousElementSibling)
+    postionIndicator(paginationActiveNumber)
+  })
+
+  paginationRightArrow.addEventListener('click', () => {
+    setActiveNumber(paginationActiveNumber.nextElementSibling)
+    postionIndicator(paginationActiveNumber)
+  })
+
+  Array.from(paginationNumbers).forEach((element) => {
+    element.addEventListener('click', () => {
+      setActiveNumber(element)
+      postionIndicator(paginationActiveNumber)
+    })
+
+    element.addEventListener('mouseover', () => {postionIndicator(element)})
+
+    element.addEventListener('mouseout', () => {postionIndicator(paginationActiveNumber)})
+  })
+
+  postionIndicator(paginationActiveNumber)
+}
+
+    </script>
+    <script>
+      
      document.getElementById('scrollToTop').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });});
     </script>

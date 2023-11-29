@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="74b10f53fac9417b97f92bd270fdf29f" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_UDNHATROModel.DANHGIA_PHONG" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.DANHGIA_UNGDUNG" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.DUONGPHO" Width="1.5" PointX="15.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.HINHANH" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.HINHANHTINTUC" Width="1.5" PointX="7.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.LOAIPHONG" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.LOAITAIKHOAN" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.NGUOIDUNG" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.PHONG" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.PHUONGXA" Width="1.5" PointX="15.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.QUANHUYEN" Width="1.5" PointX="13" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.TINTUC" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_UDNHATROModel.TINHTP" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAND_DANHGIA_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAPHONG_DANHGIA_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAND_DANHGIA_UNGDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAQUANHUYEN_DUONGPHO" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAPHONG_HINHANH" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MATINTUC_HINHANHTINTUC" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MALP_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MALTK_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAND_PHONG" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAND_TINTUC" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MAQUANHUYEN_PHUONGXA" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_UDNHATROModel.FK_MATINHTP_QUANHUYEN" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

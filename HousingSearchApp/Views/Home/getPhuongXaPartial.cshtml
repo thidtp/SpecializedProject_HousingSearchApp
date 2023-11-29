@@ -1,0 +1,7 @@
+﻿@model List<HousingSearchApp.Models.PhuongXa_DTO>
+
+@foreach (var phuongXa in Model)
+{
+    <option value="@phuongXa.MaPhuongXa">@phuongXa.TenPhuongXa</option>
+}
+

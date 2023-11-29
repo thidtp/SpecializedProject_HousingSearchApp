@@ -1,0 +1,147 @@
+@import '~mdb-ui-kit/css/mdb.min.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Dancing+Script:wght@500&family=Kalam:wght@700&family=Lora:ital@1&family=Montserrat:ital,wght@0,300;0,800;1,600;1,700;1,800&family=Nunito+Sans:opsz@6..12&family=Rubik+Dirt&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+.swiper-container.swiper-bg {
+    background-image: url('/path/to/your/image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+header {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+.search-content-items{
+    justify-content: space-between;
+    background-color: rgb(221,221,221,0.5);
+    padding: 12px;
+    border-radius: 5px;
+}
+.search-content-item{
+    height: 50px;
+    background-color: #fff;
+    width: 19%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+.search-content-item input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 36px;
+    border-radius: 5px;
+}
+.search-content-item i{
+    position: absolute;
+    color: white;
+    margin-right: 12px;
+    left: 12px;
+    z-index: 1;
+}
+.search-content-item:last-child{
+    width: 130px;
+}
+.search-content-item:last-child button{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    background-color: aqua;
+    border: none;
+    cursor: pointer;
+}
+.hidden-header {
+    display: none;
+}
+:root {
+  --base: 0.6rem;
+}
+
+.container_2 {
+  margin-top: -250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.chevron {
+  position: absolute;
+  width: calc(var(--base) * 3.5);
+  height: calc(var(--base) * 0.8);
+  opacity: 0;
+  transform: scale(0.3);
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+.chevron:before,
+.chevron:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: #ffffff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY(calc(var(--base) * 3.8));
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY(calc(var(--base) * 5.2));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--base) * 8)) scale(0.5);
+  }
+}
+.owl-carousel {
+  width: 70%;
+  margin: auto;
+}
+
+.owl-carousel .item {
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+  

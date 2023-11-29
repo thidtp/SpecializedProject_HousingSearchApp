@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_UDNHATROModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DANHGIA_PHONG">
+    <Key>
+      <PropertyRef Name="MADGPHONG" />
+    </Key>
+    <Property Name="MADGPHONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAPHONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DANHGIA" Type="int" />
+    <Property Name="BINHLUAN" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DANHGIA_UNGDUNG">
+    <Key>
+      <PropertyRef Name="MADGUD" />
+    </Key>
+    <Property Name="MADGUD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DANHGIA" Type="int" />
+    <Property Name="BINHLUAN" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DUONGPHO">
+    <Key>
+      <PropertyRef Name="MADUONGPHO" />
+    </Key>
+    <Property Name="MADUONGPHO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENDUONGPHO" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAQUANHUYEN" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HINHANH">
+    <Key>
+      <PropertyRef Name="MAHA" />
+    </Key>
+    <Property Name="MAHA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAPHONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENFILEANH" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HINHANHTINTUC">
+    <Key>
+      <PropertyRef Name="MAHTT" />
+    </Key>
+    <Property Name="MAHTT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MATINTUC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENFILEANH" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LOAIPHONG">
+    <Key>
+      <PropertyRef Name="MALP" />
+    </Key>
+    <Property Name="MALP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENLP" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAITAIKHOAN">
+    <Key>
+      <PropertyRef Name="MALTK" />
+    </Key>
+    <Property Name="MALTK" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENLTK" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG">
+    <Key>
+      <PropertyRef Name="MAND" />
+    </Key>
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MALTK" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENND" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TENTK" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="MATKHAU" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="THOIGIANDANGNHAPLANCUOI" Type="datetime" />
+    <Property Name="TENFILEANH" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MAPHONG" />
+    </Key>
+    <Property Name="MAPHONG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MALP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIEUDE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="MOTA" Type="nvarchar(max)" />
+    <Property Name="GIATHUE" Type="int" />
+    <Property Name="TIENICH" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIENTICH" Type="nvarchar" MaxLength="80" />
+    <Property Name="THOIGIANDANG" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PHUONGXA">
+    <Key>
+      <PropertyRef Name="MAPHUONGXA" />
+    </Key>
+    <Property Name="MAPHUONGXA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENPHUONGXA" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAQUANHUYEN" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QUANHUYEN">
+    <Key>
+      <PropertyRef Name="MAQUANHUYEN" />
+    </Key>
+    <Property Name="MAQUANHUYEN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENQUANHUYEN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MATINHTP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TINTUC">
+    <Key>
+      <PropertyRef Name="MATINTUC" />
+    </Key>
+    <Property Name="MATINTUC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIEUDE" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOIDUNG" Type="nvarchar(max)" />
+    <Property Name="NGAYDANG" Type="datetime" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TINHTP">
+    <Key>
+      <PropertyRef Name="MATINHTP" />
+    </Key>
+    <Property Name="MATINHTP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENTINHTP" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_MALP_PHONG">
+    <End Role="LOAIPHONG" Type="Self.LOAIPHONG" Multiplicity="1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIPHONG">
+        <PropertyRef Name="MALP" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MALP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MALTK_NGUOIDUNG">
+    <End Role="LOAITAIKHOAN" Type="Self.LOAITAIKHOAN" Multiplicity="1" />
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAITAIKHOAN">
+        <PropertyRef Name="MALTK" />
+      </Principal>
+      <Dependent Role="NGUOIDUNG">
+        <PropertyRef Name="MALTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAND_DANHGIA_PHONG">
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+    <End Role="DANHGIA_PHONG" Type="Self.DANHGIA_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MAND" />
+      </Principal>
+      <Dependent Role="DANHGIA_PHONG">
+        <PropertyRef Name="MAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAND_DANHGIA_UNGDUNG">
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+    <End Role="DANHGIA_UNGDUNG" Type="Self.DANHGIA_UNGDUNG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MAND" />
+      </Principal>
+      <Dependent Role="DANHGIA_UNGDUNG">
+        <PropertyRef Name="MAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAND_PHONG">
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MAND" />
+      </Principal>
+      <Dependent Role="PHONG">
+        <PropertyRef Name="MAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAND_TINTUC">
+    <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="1" />
+    <End Role="TINTUC" Type="Self.TINTUC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MAND" />
+      </Principal>
+      <Dependent Role="TINTUC">
+        <PropertyRef Name="MAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAPHONG_DANHGIA_PHONG">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="DANHGIA_PHONG" Type="Self.DANHGIA_PHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MAPHONG" />
+      </Principal>
+      <Dependent Role="DANHGIA_PHONG">
+        <PropertyRef Name="MAPHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAPHONG_HINHANH">
+    <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+    <End Role="HINHANH" Type="Self.HINHANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MAPHONG" />
+      </Principal>
+      <Dependent Role="HINHANH">
+        <PropertyRef Name="MAPHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAQUANHUYEN_DUONGPHO">
+    <End Role="QUANHUYEN" Type="Self.QUANHUYEN" Multiplicity="1" />
+    <End Role="DUONGPHO" Type="Self.DUONGPHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUANHUYEN">
+        <PropertyRef Name="MAQUANHUYEN" />
+      </Principal>
+      <Dependent Role="DUONGPHO">
+        <PropertyRef Name="MAQUANHUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAQUANHUYEN_PHUONGXA">
+    <End Role="QUANHUYEN" Type="Self.QUANHUYEN" Multiplicity="1" />
+    <End Role="PHUONGXA" Type="Self.PHUONGXA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUANHUYEN">
+        <PropertyRef Name="MAQUANHUYEN" />
+      </Principal>
+      <Dependent Role="PHUONGXA">
+        <PropertyRef Name="MAQUANHUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATINTUC_HINHANHTINTUC">
+    <End Role="TINTUC" Type="Self.TINTUC" Multiplicity="1" />
+    <End Role="HINHANHTINTUC" Type="Self.HINHANHTINTUC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINTUC">
+        <PropertyRef Name="MATINTUC" />
+      </Principal>
+      <Dependent Role="HINHANHTINTUC">
+        <PropertyRef Name="MATINTUC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATINHTP_QUANHUYEN">
+    <End Role="TINHTP" Type="Self.TINHTP" Multiplicity="1" />
+    <End Role="QUANHUYEN" Type="Self.QUANHUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTP">
+        <PropertyRef Name="MATINHTP" />
+      </Principal>
+      <Dependent Role="QUANHUYEN">
+        <PropertyRef Name="MATINHTP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_UDNHATROModelStoreContainer">
+    <EntitySet Name="DANHGIA_PHONG" EntityType="Self.DANHGIA_PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHGIA_UNGDUNG" EntityType="Self.DANHGIA_UNGDUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DUONGPHO" EntityType="Self.DUONGPHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HINHANH" EntityType="Self.HINHANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HINHANHTINTUC" EntityType="Self.HINHANHTINTUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIPHONG" EntityType="Self.LOAIPHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAITAIKHOAN" EntityType="Self.LOAITAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHUONGXA" EntityType="Self.PHUONGXA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUANHUYEN" EntityType="Self.QUANHUYEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINTUC" EntityType="Self.TINTUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINHTP" EntityType="Self.TINHTP" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MALP_PHONG" Association="Self.FK_MALP_PHONG">
+      <End Role="LOAIPHONG" EntitySet="LOAIPHONG" />
+      <End Role="PHONG" EntitySet="PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MALTK_NGUOIDUNG" Association="Self.FK_MALTK_NGUOIDUNG">
+      <End Role="LOAITAIKHOAN" EntitySet="LOAITAIKHOAN" />
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAND_DANHGIA_PHONG" Association="Self.FK_MAND_DANHGIA_PHONG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+      <End Role="DANHGIA_PHONG" EntitySet="DANHGIA_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAND_DANHGIA_UNGDUNG" Association="Self.FK_MAND_DANHGIA_UNGDUNG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+      <End Role="DANHGIA_UNGDUNG" EntitySet="DANHGIA_UNGDUNG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAND_PHONG" Association="Self.FK_MAND_PHONG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+      <End Role="PHONG" EntitySet="PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAND_TINTUC" Association="Self.FK_MAND_TINTUC">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+      <End Role="TINTUC" EntitySet="TINTUC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAPHONG_DANHGIA_PHONG" Association="Self.FK_MAPHONG_DANHGIA_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="DANHGIA_PHONG" EntitySet="DANHGIA_PHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAPHONG_HINHANH" Association="Self.FK_MAPHONG_HINHANH">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="HINHANH" EntitySet="HINHANH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAQUANHUYEN_DUONGPHO" Association="Self.FK_MAQUANHUYEN_DUONGPHO">
+      <End Role="QUANHUYEN" EntitySet="QUANHUYEN" />
+      <End Role="DUONGPHO" EntitySet="DUONGPHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAQUANHUYEN_PHUONGXA" Association="Self.FK_MAQUANHUYEN_PHUONGXA">
+      <End Role="QUANHUYEN" EntitySet="QUANHUYEN" />
+      <End Role="PHUONGXA" EntitySet="PHUONGXA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATINTUC_HINHANHTINTUC" Association="Self.FK_MATINTUC_HINHANHTINTUC">
+      <End Role="TINTUC" EntitySet="TINTUC" />
+      <End Role="HINHANHTINTUC" EntitySet="HINHANHTINTUC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATINHTP_QUANHUYEN" Association="Self.FK_MATINHTP_QUANHUYEN">
+      <End Role="TINHTP" EntitySet="TINHTP" />
+      <End Role="QUANHUYEN" EntitySet="QUANHUYEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

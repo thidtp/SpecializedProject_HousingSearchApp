@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_UDNHATROModelStoreContainer" CdmEntityContainer="QL_UDNHATROEntities2">
+    <EntitySetMapping Name="DANHGIA_PHONG">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.DANHGIA_PHONG">
+        <MappingFragment StoreEntitySet="DANHGIA_PHONG">
+          <ScalarProperty Name="MADGPHONG" ColumnName="MADGPHONG" />
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
+          <ScalarProperty Name="BINHLUAN" ColumnName="BINHLUAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DANHGIA_UNGDUNG">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.DANHGIA_UNGDUNG">
+        <MappingFragment StoreEntitySet="DANHGIA_UNGDUNG">
+          <ScalarProperty Name="MADGUD" ColumnName="MADGUD" />
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
+          <ScalarProperty Name="BINHLUAN" ColumnName="BINHLUAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUONGPHOes">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.DUONGPHO">
+        <MappingFragment StoreEntitySet="DUONGPHO">
+          <ScalarProperty Name="MADUONGPHO" ColumnName="MADUONGPHO" />
+          <ScalarProperty Name="TENDUONGPHO" ColumnName="TENDUONGPHO" />
+          <ScalarProperty Name="MAQUANHUYEN" ColumnName="MAQUANHUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HINHANHs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.HINHANH">
+        <MappingFragment StoreEntitySet="HINHANH">
+          <ScalarProperty Name="MAHA" ColumnName="MAHA" />
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="TENFILEANH" ColumnName="TENFILEANH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HINHANHTINTUCs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.HINHANHTINTUC">
+        <MappingFragment StoreEntitySet="HINHANHTINTUC">
+          <ScalarProperty Name="MAHTT" ColumnName="MAHTT" />
+          <ScalarProperty Name="MATINTUC" ColumnName="MATINTUC" />
+          <ScalarProperty Name="TENFILEANH" ColumnName="TENFILEANH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIPHONGs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.LOAIPHONG">
+        <MappingFragment StoreEntitySet="LOAIPHONG">
+          <ScalarProperty Name="MALP" ColumnName="MALP" />
+          <ScalarProperty Name="TENLP" ColumnName="TENLP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAITAIKHOANs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.LOAITAIKHOAN">
+        <MappingFragment StoreEntitySet="LOAITAIKHOAN">
+          <ScalarProperty Name="MALTK" ColumnName="MALTK" />
+          <ScalarProperty Name="TENLTK" ColumnName="TENLTK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOIDUNGs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.NGUOIDUNG">
+        <MappingFragment StoreEntitySet="NGUOIDUNG">
+          <ScalarProperty Name="TENFILEANH" ColumnName="TENFILEANH" />
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="MALTK" ColumnName="MALTK" />
+          <ScalarProperty Name="TENND" ColumnName="TENND" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TENTK" ColumnName="TENTK" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="THOIGIANDANGNHAPLANCUOI" ColumnName="THOIGIANDANGNHAPLANCUOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="THOIGIANDANG" ColumnName="THOIGIANDANG" />
+          <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+          <ScalarProperty Name="MALP" ColumnName="MALP" />
+          <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+          <ScalarProperty Name="GIATHUE" ColumnName="GIATHUE" />
+          <ScalarProperty Name="TIENICH" ColumnName="TIENICH" />
+          <ScalarProperty Name="DIENTICH" ColumnName="DIENTICH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHUONGXAs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.PHUONGXA">
+        <MappingFragment StoreEntitySet="PHUONGXA">
+          <ScalarProperty Name="MAPHUONGXA" ColumnName="MAPHUONGXA" />
+          <ScalarProperty Name="TENPHUONGXA" ColumnName="TENPHUONGXA" />
+          <ScalarProperty Name="MAQUANHUYEN" ColumnName="MAQUANHUYEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUANHUYENs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.QUANHUYEN">
+        <MappingFragment StoreEntitySet="QUANHUYEN">
+          <ScalarProperty Name="MAQUANHUYEN" ColumnName="MAQUANHUYEN" />
+          <ScalarProperty Name="TENQUANHUYEN" ColumnName="TENQUANHUYEN" />
+          <ScalarProperty Name="MATINHTP" ColumnName="MATINHTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINTUCs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.TINTUC">
+        <MappingFragment StoreEntitySet="TINTUC">
+          <ScalarProperty Name="MATINTUC" ColumnName="MATINTUC" />
+          <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="NGAYDANG" ColumnName="NGAYDANG" />
+          <ScalarProperty Name="MAND" ColumnName="MAND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTPs">
+      <EntityTypeMapping TypeName="QL_UDNHATROModel.TINHTP">
+        <MappingFragment StoreEntitySet="TINHTP">
+          <ScalarProperty Name="MATINHTP" ColumnName="MATINHTP" />
+          <ScalarProperty Name="TENTINHTP" ColumnName="TENTINHTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

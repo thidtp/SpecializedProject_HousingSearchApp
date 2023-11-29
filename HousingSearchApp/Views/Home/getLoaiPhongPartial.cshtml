@@ -1,0 +1,9 @@
+﻿@model List<HousingSearchApp.Models.LoaiPhong_DTO>
+
+@foreach (var loaiPhong in Model)
+{
+        <option value="@loaiPhong.MaLoaiPhong">@loaiPhong.TenLoaiPhong</option>
+}
+
+
+
