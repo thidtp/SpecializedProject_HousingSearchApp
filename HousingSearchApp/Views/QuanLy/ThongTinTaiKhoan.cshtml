@@ -1,0 +1,126 @@
+﻿@model List<HousingSearchApp.Models.NGUOIDUNG>
+@{
+    ViewBag.Title = "ThongTinTaiKhoan";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+ 
+}
+
+<div class=" mx-auto flex min-h-screen w-full">
+    <nav class="col-lg-2 hidden lg:block bg-light sidebar ">
+        <div class="user_info">
+            <a href="#" class="flex flex-col items-center">
+                <div class="user_avatar rounded-full overflow-hidden mt-2">
+                    <img src="~/Image/DuLieu/NguoiDung/@System.Web.HttpContext.Current.Session["TenFileAnh"]" alt="User Avatar" class="flex-shrink-0 rounded-full object-cover object-center h-20 w-20">
+                </div>
+                <div class="user_meta mt-3">
+                    <div class="inner">
+                        <div class="user_name" id="user_name"></div>
+                        <div class="user_verify text-gray-700 text-sm" id="user_contact"></div>
+                    </div>
+                    <div class="user_info_details mt-1 text-gray-600 text-sm text-center">
+                        <div id="info_name"></div>
+                        <div id="info_contact"></div>
+                    </div>
+                </div>
+            </a>
+            <!-- Danh mục Sidebar -->
+            <ul class="mt-3">
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/Index" class="block p-2 hover:text-red-500">Quản lý tin đăng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/QuanLyTaiKhoan" class="block p-2 hover:text-red-500">Quản lý người dùng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/ThongTinTaiKhoan" class="block p-2 hover:text-red-500">Sửa thông tin tài khoản</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/NguoiDung/DangXuat" class="block p-2 hover:text-red-500">Thoát</a></li>
+                <!-- Thêm các mục danh mục khác nếu cần -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Content Section -->
+    <div class="content flex-grow p-4">
+        <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-center h-full">
+                    <ol class="flex breadcrumb p-0 m-0">
+                        <li><a href="~/Home/Home" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                        <li class="mx-1">
+                            <span class="content-slash px-2 text-black text-sm">/</span>
+                        </li>
+                        <li><a href="~/QuanLy/ThongTinTaiKhoan" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm font-semibold">Cập nhật thông tin cá nhân</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <h1 class="text-2xl font-bold mb-4 mt-3">Cập nhật thông tin cá nhân</h1>
+        @foreach(var nguoidung in Model)
+            {
+            <form method="post" action="@Url.Action("CapNhatThongTin", "NguoiDung")" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="mb-4 mx-auto text-center">
+                    <label for="avt" class="block mb-2">Ảnh đại diện:</label>
+                    <div class="avatar-container flex items-center justify-center mb-2">
+                        <img id="avatar-img" src="~/Image/DuLieu/NguoiDung/@nguoidung.TENFILEANH" alt="Ảnh đại diện" class="w-16 h-16 rounded-full">
+                    </div>
+                    <div class="upload-btn-wrapper">
+                        <button type="button" class="btn bg-blue-500 text-white" onclick="document.getElementById('avatar-input').click()">Chọn ảnh đại diện</button>
+                        <input type="file" name="avatar" accept="image/*" class="hidden" id="avatar-input" onchange="updateAvatarPreview(this)" />
+                    </div>
+                </div>
+                <div class="user-details">
+                    <label for="display-name" class="block mb-2">Tên hiển thị:</label>
+                    <input type="text" id="display-name" value="@nguoidung.TENND" name="display-name" class="w-full bg-white p-2 mb-4 border rounded">
+
+                    <label for="phone" class="block mb-2">Số điện thoại:</label>
+                    <input type="tel" id="phone" value="@nguoidung.SDT" name="phone" class="w-full bg-white p-2 mb-4 border rounded">
+
+                    <label for="email" class="block mb-2">Email:</label>
+                    <input type="email" id="email" value="@nguoidung.EMAIL" name="email" class="w-full bg-white p-2 mb-4 border rounded">
+
+                    <label for="address" class="block mb-2">Địa chỉ:</label>
+                    <input type="text" id="address" value="@nguoidung.DIACHI" name="address" class="w-full bg-white p-2 mb-4 border rounded">
+
+                    <div class="flex items-center mb-4">
+                        <label for="password" class="block mb-2">Mật khẩu:</label>
+                        <button type="button" id="change-password-btn" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Đổi mật khẩu</button>
+                    </div>
+
+                    <!-- Khung Đổi Mật Khẩu (Ẩn Ban Đầu) -->
+                    <div id="change-password-section" class="hidden fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="bg-white p-8 rounded w-96">
+                            <!-- Tiêu đề -->
+                            <h2 class="text-2xl font-bold mb-4">Cập nhật mật khẩu</h2>
+
+                            <!-- Ô nhập liệu mật khẩu -->
+                            <label for="current-password" class="block mb-2">Mật khẩu hiện tại:</label>
+                            <div class="relative">
+                                <input type="password" id="current-password" name="current-password" class="w-full bg-white p-2 mb-4 border rounded">
+                                <span id="toggle-current-password" class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer" onclick="togglePasswordVisibility('current-password')">
+                                    <!-- Icon mắt ẩn -->
+                                    <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Ô nhập liệu mật khẩu mới -->
+                            <label for="new-password" class="block mb-2">Mật khẩu mới:</label>
+                            <div class="relative">
+                                <input type="password" id="new-password" name="new-password" class="w-full bg-white p-2 mb-4 border rounded">
+                                <span id="toggle-new-password" class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer" onclick="togglePasswordVisibility('new-password')">
+                                    <!-- Icon mắt ẩn -->
+                                    <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Nút Cập Nhật và Nút Đóng -->
+                            <div class="flex justify-between">
+                                <button type="button" id="update-password-btn" class="bg-green-500 text-white px-4 py-2 rounded">Cập nhật</button>
+                                <button type="button" id="close-password-section-btn" class="bg-green-500 text-white px-4 py-2 rounded">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Lưu và cập nhật</button>
+            </form>
+            }
+    </div>
+</div>

@@ -1,0 +1,161 @@
+﻿@model HousingSearchApp.Models.PHONG
+@{
+    ViewBag.Title = "Chitietphong";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="content flex-grow mr-10 ml-10">
+    <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex mt-3">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-center h-full">
+                <ol class="flex breadcrumb p-0 m-0">
+                    <li><a href="~/Home/Home" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                    <li class="mx-1">
+                        <span class="content-slash px-2 text-black text-sm">/</span>
+                    </li>
+                    <li><a href="~/QuanLy/Index" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Quản lý tin đăng</a></li>
+                    <li class="mx-1">
+                        <span class="content-slash px-2 text-black text-sm">/</span>
+                    </li>
+                    <li><a href="~/QuanLy/Chitietphong" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm font-semibold">Chi tiết tin đăng</a></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <div class="border p-4 my-4">
+        <h2 class="text-xl font-semibold mb-2">@Model.TIEUDE</h2>
+        <div class=" flex justify-end order-first">
+            @{
+                if (Model.TRANGTHAI == 0)
+                {
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" data-maphong="@Model.MAPHONG" onclick="DuyetBai(this)">Duyệt bài</button>
+                }
+                else
+                {
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" data-maphong="@Model.MAPHONG" onclick="KhoaBai(this)">Khoá bài</button>
+                }
+            }
+        </div>
+        <div class="flex mb-2 -mt-10">
+            <div class="flex-1 flex items-center">
+                <i class="fas fa-user text-gray-500 mr-2"></i>
+                <span class="text-gray-500">Người đăng:</span>
+                <span class="ml-2">@Model.NGUOIDUNG.TENND</span>
+            </div>
+            <div class="flex-1 flex items-center">
+                <i class="far fa-clock text-gray-500 mr-2"></i>
+                <span class="text-gray-500">Thời gian:</span>
+                <span class="ml-2">@string.Format("{0:dd/MM/yyyy HH:mm}", Model.THOIGIANDANG)</span>
+            </div>
+        </div>
+
+        <div class="flex mb-2">
+            <div class="flex-1 flex items-center">
+                <i class="fas fa-money-bill-wave text-gray-500 mr-2"></i>
+                <span class="text-gray-500">Giá thuê:</span>
+                <span class="ml-2">@string.Format("{0:N0}", Model.GIATHUE)</span>
+            </div>
+            <div class="flex-1 flex items-center">
+                <i class="fas fa-home text-gray-500 mr-2"></i>
+                <span class="text-gray-500">Loại phòng:</span>
+                <span class="ml-2">@Model.LOAIPHONG.TENLP</span>
+            </div>
+        </div>
+        <div class="mb-2">
+            <i class="fas fa-expand-arrows-alt text-gray-500 mr-2"></i>
+            <span class="text-gray-500">Diện tích:</span>
+            <span class="ml-2">@Model.DIENTICH m<sup>2</sup></span>
+        </div>
+        <div class="mb-2">
+            <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+            <span class="text-gray-500">Địa chỉ:</span>
+            <span class="ml-2">@Model.DIACHI</span>
+        </div>
+    </div>
+    <div class="article-category mt-3">
+        <div class="flex items-center">
+            <p href="javascript:void();" class="text-xl font-bold"><span>HÌNH ẢNH</span></p>
+        </div>
+        <hr class="my-2">
+    </div>
+
+
+    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-120 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            @foreach (var hinhAnh in Model.HINHANHs)
+            {
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="~/Image/DuLieu/Phong/@hinhAnh.TENFILEANH" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+            }
+
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+</div>
+<script>
+    function DuyetBai(button) {
+        var maPhong = button.getAttribute('data-maphong');
+        $.ajax({
+            url: '/QuanLy/KiemDuyetPhong',
+            type: 'POST',
+            data: { maphong: maPhong },
+            success: function (result) {
+                if (result.success) {
+                    alert("Duyệt thành công");
+                    window.location.href = '/QuanLy/Index';
+                } else {
+                    alert("Duyệt không thành công: " + result.message);
+                    console.log(result.message);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+</script>
+
+<script>
+    function KhoaBai(button) {
+        var maPhong = button.getAttribute('data-maphong');
+        $.ajax({
+            url: '/QuanLy/KiemDuyetPhong',
+            type: 'POST',
+            data: { maphong: maPhong },
+            success: function (result) {
+                if (result.success) {
+                    alert("Khóa thành công");
+                    window.location.href = '/QuanLy/Index';
+                } else {
+                    alert("Khóa không thành công: " + result.message);
+                    console.log(result.message);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
+
+

@@ -1,0 +1,25 @@
+﻿@model List<HousingSearchApp.Models.PHONG>
+@foreach (var phong in Model)
+{
+    <a href="@Url.Action("ChiTietPhong", "PhongTro", new { maPhong = phong.MAPHONG })">
+        <div class="card-container">
+            <div class="card bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-250 ease-in hover:transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="card-img">
+                    @if (phong.HINHANHs != null && phong.HINHANHs.Any() && !string.IsNullOrEmpty(phong.HINHANHs.First().TENFILEANH))
+                    {
+                        var imageName = Path.GetFileName(phong.HINHANHs.First().TENFILEANH);
+                        <img src="~/Image/DuLieu/Phong/@imageName" alt="Card Image" class="w-full">
+                    }
+                </div>
+                <div class="card-text p-2 mt-5">
+                    <h4 class="text-xl font-bold mb-4  card-title" title="@phong.TIEUDE" style="margin-top: 200px;">@phong.TIEUDE</h4>
+                    <i class="lar la-heart absolute right-0 top-0 p-4 text-2xl"></i>
+                    <p><i class="fas fa-money-bill-alt"></i> @string.Format("{0:N0}", phong.GIATHUE)Đ/Tháng</p>
+                    <p><i class="fas fa-map-marker-alt"></i> @phong.DIACHI</p>
+                    <p><i class="fas fa-home"></i> @phong.LOAIPHONG.TENLP</p>
+                </div>
+            </div>
+        </div>
+    </a>
+}
+

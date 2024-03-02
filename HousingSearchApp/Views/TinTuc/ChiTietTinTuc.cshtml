@@ -1,0 +1,132 @@
+﻿@model HousingSearchApp.Models.TINTUC
+@using Newtonsoft.Json
+@{
+    ViewBag.Title = "ChiTietTinTuc";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="container mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mr-1 ml-1">
+        <div class="md:col-span-3">
+            <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex">
+                <div class="container mx-auto">
+                    <div class="flex items-center justify-center h-full">
+                        <ol class="flex breadcrumb p-0 m-0">
+                            <li><a href="~/Home/Home" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                            <li class="mx-1">
+                                <span class="content-slash px-2 text-black text-sm">/</span>
+                            </li>
+                            <li><a href="~/TinTuc/Index" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Ở Ghép</a></li>
+                            <li class="mx-1">
+                                <span class="content-slash px-2 text-black text-sm">/</span>
+                            </li>
+                            <li class="font-bold text-black font-Montserrat text-sm self-center"><a href="@Url.Action("ChiTietTinTuc", "TinTuc", new { maTT = Model.MATINTUC })" class="hover:text-red-500">@Model.TIEUDE</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            <div class="article-category mt-3">
+                <div class="flex items-center">
+                    <a href="javascript:void();" class="text-xl font-bold"><span>@Model.TIEUDE</span></a>
+                </div>
+                <hr class="my-2">
+            </div>
+            <div class="article-content" id="article-content">
+                @for (int i = 0, imageIndex = 0; i < Model.NOIDUNG.Split('\n').Length; i++)
+                {
+                    var paragraphLines = Model.NOIDUNG.Split('\n').Skip(i).Take(5); // Adjust the number of lines per paragraph as needed
+                    var paragraph = string.Join(" ", paragraphLines);
+
+                    <div class="content-item mb-3">
+                        <p class="content-paragraph">@paragraph</p>
+                        <div class="content-image-container mb-3 d-flex justify-content-center">
+                            @if (imageIndex < Model.HINHANHTINTUCs.Count)
+                            {
+                                var hinhAnh = Model.HINHANHTINTUCs.ElementAt(imageIndex);
+                                <img class="content-image" style="width:580px; height:460px;" src="~/Image/DuLieu/TinTuc/@hinhAnh.TENFILEANH" alt="">
+                                imageIndex++;
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="md:col-span-1">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="col-span-1">
+                    <div class="search-container bg-gray-200 p-4">
+                        <div class="advance-search">
+                            <div class="title">
+                                <a id="submit_search" href="javascript:void(0);">
+                                    <span class="fa fa-search"></span>
+                                </a>Tìm kiếm nâng cao
+                            </div>
+                            <div class="shr mt-2">
+                                <hr class="border-t-2 border-gray-300">
+                            </div>
+                            <form class="form">
+                                <div class="form-group">
+                                    <label for="district1" class="block text-sm font-medium text-gray-700">Quận/Huyện</label>
+                                    <select id="district1" name="quanHuyen" class="districtSelect1 form-select" onchange="loadWards()">
+                                        <option value="" disabled selected hidden>Chọn Quận/Huyện</option>
+                                        <!-- Thêm các option cho dropdown district -->
+                                        @{Html.RenderAction("getQuanHuyen", "Home");}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ward1" class="block text-sm font-medium text-gray-700">Phường/Xã</label>
+                                    <select id="ward1" name="phuongXa" class="wardSelect1 form-select">
+                                        <option value="" disabled selected hidden>Chọn Phường/Xã</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="roomType1" class="block text-sm font-medium text-gray-700">Loại phòng</label>
+                                    <select id="roomType1" name="maloaiPhong" class="districtSelect1 form-select">
+                                        <option value="" disabled selected hidden>Chọn Loại Phòng</option>
+                                        @{Html.RenderAction("getLoaiPhong", "Home");}
+                                    </select>
+                                </div>
+                                <div class="form-group price">
+                                    <label class="block text-sm font-medium text-gray-700">Chọn khoảng giá</label>
+                                    <div id="price_range" class="range-slider mt-4"></div>
+                                    <div class="flex justify-between mt-2">
+                                        <span id="price_min" class="text-sm text-gray-600">0 triệu</span>
+                                        <span id="price_max" class="text-sm text-gray-600">50 triệu</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" id="searchButton3" class="btn btn-primary">
+                                        <span class="fa fa-search"></span> Tìm kiếm
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-ads">
+                        <img class="w-full h-auto" src="~/Image/Web/decor1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-social">
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="~/Image/Web/decor2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="~/Image/Web/decor3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "TimKiemView";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="container mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mr-10 ml-10">
+        <div class="md:col-span-3">
+            <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex">
+                <div class="container mx-auto">
+                    <div class="flex items-center justify-center h-full">
+                        <ol class="flex breadcrumb p-0 m-0">
+                            <li><a href="~/Home/Home" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                            <li class="mx-2">
+                                <span class="content-slash px-2 text-black text-sm">/</span>
+                            </li>
+                            <li><a href="~/Home/TimKiem" class="text-black font-bold hover:text-red-500 font-Montserrat hover:no-underline text-sm">TimKiem</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                @foreach (var item in Model)
+                {
+                    string controllerName = "";
+                    switch (item.MaLoaiPhong)
+                    {
+                        case "LP00001":
+                            {
+                                controllerName = "PhongTro";
+                                break;
+                            }
+                        case "LP00002":
+                            {
+                                controllerName = "NhaNguyenCan";
+                                break;
+                            }
+                        case "LP00003":
+                            {
+                                controllerName = "ChungCuAndCanHo";
+                                break;
+                            }
+                        case "LP00004":
+                            {
+                                controllerName = "OGhep";
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+                    <a href="@Url.Action("ChiTietPhong", controllerName, new { maPhong = item.MaPhong })" class="block bg-white p-6 rounded-lg shadow-md relative">
+                        <div class="product-rent-content-item-img relative" style="text-transform: capitalize;">
+                            <img src="~/Image/DuLieu/Phong/@item.TenFileAnh)" alt="Product Image" class="w-full h-48 object-cover mb-4">
+                            <div class="absolute top-0 right-0 bg-blue-500 px-2 py-1 text-white rounded-tr-lg rounded-bl-lg">
+                                <p class="font-bold text-xl">@string.Format("{0:N0}", item.GiaThue)<sup>đ</sup>/ tháng</p>
+                            </div>
+                            <div class="product-bg bg-gray-500 h-px w-1/2 mt-2 mx-auto"></div>
+                        </div>
+                        <div class="product-rent-content-item-text" style="text-transform: capitalize;">
+                            <h1 class="text-xl font-bold mb-2 capitalize">@item.TieuDe</h1>
+                            <p><i class="fas fa-map-marker-alt"></i> @item.DiaChi</p>
+                            <p><i class="fas fa-home"></i> @item.TenLoaiPhong</p>
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="pagination ">
+                <span class="pagination__number-indicator"></span>
+                <button class="pagination__arrow">
+                    <span class="pagination__arrow-half"></span>
+                    <span class="pagination__arrow-half"></span>
+                </button>
+                @for (var i = 1; i <= Model.PageCount; i++)
+                {
+                    <button class="pagination__number @(i == Model.PageNumber ? "pagination__number--active" : "")">@i</button>
+                }
+                <button class="pagination__arrow pagination__arrow--right">
+                    <span class="pagination__arrow-half"></span>
+                    <span class="pagination__arrow-half"></span>
+                </button>
+            </div>
+        </div>
+        <div class="md:col-span-1">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="col-span-1">
+                    <div class="search-container bg-gray-200 p-4">
+                        <div class="advance-search">
+                            <div class="title">
+                                <a id="submit_search" href="javascript:void(0);">
+                                    <span class="fa fa-search"></span>
+                                </a>Tìm kiếm nâng cao
+                            </div>
+                            <div class="shr mt-2">
+                                <hr class="border-t-2 border-gray-300">
+                            </div>
+                            <form class="form" id="search_form" action="http://phongtot.vn/tim-kiem" method="GET">
+                                <div class="form-group">
+                                    <label for="district" class="block text-sm font-medium text-gray-700">Quận/Huyện</label>
+                                    <select id="district" name="district" class="form-select" onchange="loadWards()">
+                                        <option value="" disabled selected hidden>Chọn Quận/Huyện</option>
+                                        <!-- Thêm các option cho dropdown district -->
+                                        @{Html.RenderAction("getQuanHuyen", "Home");}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ward" class="block text-sm font-medium text-gray-700">Phường/Xã</label>
+                                    <div id="ward-container" class="checkbox-container border rounded p-3 mb-2 bg-white">
+                                        <!-- Checkbox sẽ được thêm vào đây -->
+                                        <!-- ... và tiếp tục với các checkbox khác -->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-gray-700">Loại phòng</label>
+                                    <div class="mt-1">
+                                        <div id="roomTypesContainer" class="flex flex-wrap border rounded p-3 mb-2 bg-white"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group price">
+                                    <label class="block text-sm font-medium text-gray-700">Chọn khoảng giá</label>
+                                    <div id="price_range" class="range-slider mt-4"></div>
+                                    <div class="flex justify-between mt-2">
+                                        <span id="price_min" class="text-sm text-gray-600">0 triệu</span>
+                                        <span id="price_max" class="text-sm text-gray-600">50 triệu</span>
+                                    </div>
+                                </div>
+                                <div class="form-group submit">
+                                    <button type="submit" class="btn btn-slide-search">
+                                        <span class="fa fa-search"></span>Tìm kiếm
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-ads">
+                        <img class="w-full h-auto" src="~/Image/Web/decor1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="sidebar-social">
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="~/Image/Web/decor2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-span-1">
+                            <div class="sidebar-ads">
+                                <img class="w-full h-auto" src="~/Image/Web/decor3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

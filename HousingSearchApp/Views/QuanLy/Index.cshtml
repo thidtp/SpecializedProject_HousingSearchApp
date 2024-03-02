@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class=" mx-auto flex min-h-screen w-full">
+    <nav class="col-lg-2 hidden lg:block bg-light sidebar ">
+        <div class="user_info">
+            <a href="#" class="flex flex-col items-center">
+                <div class="user_avatar rounded-full overflow-hidden mt-2">
+                    <img src="~/Image/DuLieu/NguoiDung/@System.Web.HttpContext.Current.Session["TenFileAnh"]" alt="User Avatar" class="flex-shrink-0 rounded-full object-cover object-center h-20 w-20">
+                </div>
+                <div class="user_meta mt-3">
+                    <div class="inner">
+                        <div class="user_name" id="user_name"></div>
+                        <div class="user_verify text-gray-700 text-sm" id="user_contact"></div>
+                    </div>
+                    <div class="user_info_details mt-1 text-gray-600 text-sm text-center">
+                        <div id="info_name"></div>
+                        <div id="info_contact"></div>
+                    </div>
+                </div>
+            </a>
+            <!-- Danh mục Sidebar -->
+            <ul class="mt-3">
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/Index" class="block p-2 hover:text-red-500">Quản lý tin đăng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/QuanLyTaiKhoan" class="block p-2 hover:text-red-500">Quản lý người dùng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/ThongTinTaiKhoan" class="block p-2 hover:text-red-500">Sửa thông tin tài khoản</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/NguoiDung/DangXuat" class="block p-2 hover:text-red-500">Thoát</a></li>
+                <!-- Thêm các mục danh mục khác nếu cần -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Content Section -->
+    <div class="content flex-grow  w-full">
+        <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex mt-3">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-center h-full">
+                    <ol class="flex breadcrumb p-0 m-0">
+                        <li><a href="~Home/Home" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                        <li class="mx-1">
+                            <span class="content-slash px-2 text-black text-sm">/</span>
+                        </li>
+                        <li><a href="~/QuanLy/Index" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm font-semibold">Quản lý tin đăng</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <h1 class="text-2xl font-bold mb-4 mt-3 ml-5">Quản lý tin đăng</h1>
+        <!--Tab -->
+        <div role="tablist" class="tabs tabs-lifted">
+            <input type="radio" name="my_tabs_2" role="tab" class="tab " aria-label="Chờ Kiểm Duyệt" checked />
+            <div role="tabpanel" class="tab-content bg-gray-100 border-gray-100 rounded-box p-6">
+                <h2 class="text-md font-bold mb-2  ml-5">Bài đăng đang chờ kiểm duyệt</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
+                    @{Html.RenderAction("BaiChuaKiemDuyet", "QuanLy");}
+                </div>
+            </div>
+            <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Đã Duyệt" />
+            <div role="tabpanel" class="tab-content bg-gray-100 border-gray-100 rounded-box p-6">
+                <h2 class="text-md font-bold mb-2  ml-5">Bài đăng đã kiểm duyệt</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
+                    @{Html.RenderAction("BaiDaKiemDuyet", "QuanLy");}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

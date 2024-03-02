@@ -1,0 +1,86 @@
+﻿@model List<HousingSearchApp.Models.NGUOIDUNG>
+<form id="khoaTK" method="post" action="@Url.Action("KhoaTaiKhoan", "QuanLy")">
+    <table class="table">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th>Tài khoản</th>
+                <th>Họ Tên</th>
+                <th>Loại Tài Khoản</th>
+                <th>Trạng thái tài khoản</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var taiKhoan in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <div>
+                                <div class="font-bold">@taiKhoan.TENTK</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @taiKhoan.TENND
+                    </td>
+                    <td>@taiKhoan.LOAITAIKHOAN.TENLTK</td>
+                    <th>
+                        @{
+                            if (taiKhoan.TRANGTHAI != 0)
+                            {
+                                <div class="badge badge-accent badge-outline">Đang hoạt động</div>
+                            }
+                            else
+                            {
+                                <div class="badge badge-error badge-outline">Dừng hoạt động</div>
+                            }
+                        }
+                    </th>
+                    <th>
+                        <label>
+                            <input type="checkbox" class="checkbox" name="selectedAccounts" value="@taiKhoan.MAND" />
+                        </label>
+                    </th>
+                </tr>
+            }
+            <!-- row 1 -->
+
+
+        </tbody>
+    </table>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#lockAccountBtn").click(function () {
+            var selectedAccounts = [];
+
+            // Lặp qua tất cả các checkbox được chọn và lấy giá trị
+            $(".checkbox:checked").each(function () {
+                selectedAccounts.push($(this).val());
+            });
+
+            // Tạo một đối tượng dữ liệu để gửi lên server
+            var dataToSend = {
+                selectedAccounts: selectedAccounts
+            };
+
+            // Gửi AJAX request để khóa tài khoản
+            $.ajax({
+                type: "POST",
+                url: $("#khoaTK").attr("action"), // Sử dụng action của form
+                data: dataToSend,
+                success: function (result) {
+                    if (result.success) {
+                        alert("Khóa thành công!");
+                    } else {
+                        alert("Khóa thất bại!");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+</script>

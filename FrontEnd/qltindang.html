@@ -1,0 +1,52 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="qltindang.css">
+        <title>Quản lý Đăng tin</title>
+    </head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Quản lý tin đăng</a></li>
+                <li><a href="#">Thoát</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Quản lý tin đăng</h2>
+            <div class="filters">
+                <select id="vipFilter">
+                    <option value="vip"> Lọc theo loại vip </option>
+                    <option value="vip">VIP 1 </option>
+                    <option value="vip">VIP 2 </option>
+                </select>
+                <select id="statusFilter">
+                    <option value="status">Lọc theo trạng thái</option>
+                    <option value="status">1</option>
+                    <option value="status">0</option>
+                </select>
+        
+                 <button class="post-button">Đăng tin mới</button>
+                </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã tin</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tiêu đề</th>
+                        <th>Giá</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày hết hạn</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+            </table>
+            <p class="post-text"> Bạn chưa có tin đăng nào. Bấm
+            <a href="#">vào đây </a> để bắt đầu đăng tin</p>
+        </div>
+    </div>
+</body>
+</html>

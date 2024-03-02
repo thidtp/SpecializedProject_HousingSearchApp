@@ -1,0 +1,58 @@
+﻿@model List<HousingSearchApp.Models.PHONG_DTO>
+<table class="w-full border-collapse border border-gray-300">
+    <thead>
+        <tr>
+            <th class="p-2 border">Mã tin</th>
+            <th class="p-2 border">Ảnh đại diện</th>
+            <th class="p-2 border">Tiêu đề</th>
+            <th class="p-2 border">Ngày đăng</th>
+            <th class="p-2 border">Giá</th>
+            <th class="p-2 border">Trạng thái</th>
+            <th class="p-2 border">Chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tindang in Model)
+        {
+            <tr>
+                <td class="p-2 border">@tindang.MaPhong</td>
+                <td class="p-2 border"><img src="~/Image/DuLieu/Phong/@tindang.TenFileAnh" style="width:100px;height:150px" /></td>
+                <td class="p-2 border">
+                    <div>
+                        <strong>Tiêu đề:</strong> @tindang.TieuDe
+                    </div>
+                    <div>
+                        <strong class="tenloaiphong">Loại phòng:</strong> @tindang.TenLoaiPhong
+                    </div>
+                    <div>
+                        <strong>Địa chỉ:</strong> @tindang.DiaChi
+                    </div>
+                </td>
+                <td class="p-2 border">Ngày đăng: @tindang.ThoiGianDang</td>
+                <td class="p-2 border">@tindang.GiaThue Đ/tháng</td>
+                @{
+                    if (tindang.TrangThai == 0)
+                    {
+                        <td class="p-2 border">Chưa duyệt</td>
+                    }
+                    else
+                    {
+                        <td class="p-2 border">Đã duyệt</td>
+                    }
+                }
+                <p></p>
+                <td class="p-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="redirectToDetail('@tindang.MaPhong')">Chi tiết tin</button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script>
+    function redirectToDetail(maPhong) {
+        window.location.href = '/NguoiDung/ChiTietPhong?maPhong=' + maPhong;
+    }
+</script>
+
+

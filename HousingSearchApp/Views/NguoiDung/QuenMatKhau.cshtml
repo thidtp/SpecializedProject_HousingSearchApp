@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Your Page Title</title>
+</head>
+<body class="bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 text-white flex items-center justify-center min-h-screen">
+
+    <div class="card bg-opacity-75 backdrop-filter backdrop-blur-sm border border-white rounded-lg p-8 flex flex-col items-center">
+        <p class="lock-icon text-3xl"><i class="fas fa-lock"></i></p>
+        <h2 class="text-2xl mt-4 uppercase">QUÊN MẬT KHẨU?</h2>
+        <p class="text-sm">Bạn cần đặt lại mật khẩu</p>
+
+        <!-- Email Input -->
+        <div class="relative mt-6">
+            <input type="text" id="email-input" class="passInput w-full pl-2 pr-10 py-2 border-b-2 border-deepskyblue text-white bg-transparent focus:outline-none" placeholder="Email address">
+            <button id="send" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-deepskyblue text-white px-4 py-2 rounded-md">Gửi mã</button>
+
+        </div>
+
+        <!-- OTP Input -->
+        <div class="relative mt-6">
+            <input type="text" class="otpInput w-full pl-2 pr-10 py-2 border-b-2 border-deepskyblue text-white bg-transparent focus:outline-none" placeholder="Enter OTP">
+        </div>
+
+        <!-- Send Button -->
+        <div class="relative mt-6">
+            <button id="send-password-btn" class="w-full bg-deepskyblue text-white px-4 py-2 rounded-md">Send My Password</button>
+        </div>
+        <div class="relative mt-6">
+            <button id="close-btn" class="w-full bg-deepskyblue text-white px-4 py-2 rounded-md">Đóng</button>
+        </div>
+    </div>
+
+    <!-- Change Password Section -->
+    <div id="change-password-section" class="hidden fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-8 rounded w-96">
+            <!-- Tiêu đề -->
+            <h2 class="text-2xl font-bold mb-4 text-black">Đổi mật khẩu</h2>
+
+            <!-- Ô nhập liệu mật khẩu -->
+            <label for="current-password" class="block mb-2 text-black">Mật khẩu hiện tại:</label>
+            <div class="relative">
+                <input type="password" id="current-password" name="current-password" class="w-full p-2 mb-4 border rounded text-black">
+                <span id="toggle-current-password" class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer" onclick="togglePasswordVisibility('current-password')">
+                    <!-- Icon mắt ẩn -->
+                    <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </span>
+            </div>
+            <!-- Ô nhập liệu mật khẩu mới -->
+            <label for="new-password" class="block mb-2 text-black">Mật khẩu mới:</label>
+            <div class="relative">
+                <input type="password" id="new-password" name="new-password" class="w-full p-2 mb-4 border rounded text-black">
+                <span id="toggle-new-password" class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer" onclick="togglePasswordVisibility('new-password')">
+                    <!-- Icon mắt ẩn -->
+                    <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </span>
+            </div>
+            <!-- Nút Cập Nhật và Nút Đóng -->
+            <div class="flex justify-between">
+                <button type="button" id="update-password-btn" class="bg-green-500 text-white px-4 py-2 rounded">Cập nhật</button>
+                <button type="button" id="close-password-section-btn" class="bg-green-500 text-white px-4 py-2 rounded">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        // Function to toggle visibility of the change password section
+        function toggleChangePasswordSection() {
+            var changePasswordSection = document.getElementById('change-password-section');
+            changePasswordSection.classList.toggle('hidden');
+        }
+
+        // Event listener for the "Send My Password" button
+        document.getElementById('send-password-btn').addEventListener('click', function () {
+            // Your logic to check if OTP is correct and toggle the change password section
+            // For example, you can call toggleChangePasswordSection() when the OTP is correct
+            toggleChangePasswordSection();
+        });
+
+        // Event listener for the "Đóng" (Close) button
+        document.getElementById('close-password-section-btn').addEventListener('click', function () {
+            // Close the change password section
+            toggleChangePasswordSection();
+        });
+
+        // Function to toggle password visibility
+        function togglePasswordVisibility(inputId) {
+            var passwordInput = document.getElementById(inputId);
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
+<!-- Include the script in your HTML file -->
+<script>
+    // Assuming this code is in your content script
+
+    document.getElementById('send').addEventListener('click', function () {
+        var emailInput = document.getElementById('email-input').value;
+
+        // Omit the extension ID when sending a message within the same extension
+        chrome.runtime.sendMessage({ action: 'startOperation', email: emailInput }, function (response) {
+            if (chrome.runtime.lastError) {
+                console.error(chrome.runtime.lastError);
+            } else {
+                handleResponse(response);
+            }
+        });
+    });
+
+    function handleResponse(response) {
+        if (response.success) {
+            alert(response.message);
+            document.getElementById('otp-section').classList.remove('hidden');
+        } else {
+            alert(response.message);
+        }
+    }
+
+</script>
+
+

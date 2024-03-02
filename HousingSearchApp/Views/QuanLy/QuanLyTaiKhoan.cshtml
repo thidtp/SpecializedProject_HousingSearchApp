@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "QuanLyTaiKhoan";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class=" mx-auto flex min-h-screen w-full">
+    <nav class="col-lg-2 hidden lg:block bg-light sidebar ">
+        <div class="user_info">
+            <a href="#" class="flex flex-col items-center">
+                <div class="user_avatar rounded-full overflow-hidden mt-2">
+                    <img src="~/Image/DuLieu/NguoiDung/@System.Web.HttpContext.Current.Session["TenFileAnh"]" alt="User Avatar" class="flex-shrink-0 rounded-full object-cover object-center h-20 w-20">
+                </div>
+                <div class="user_meta mt-3">
+                    <div class="inner">
+                        <div class="user_name" id="user_name"></div>
+                        <div class="user_verify text-gray-700 text-sm" id="user_contact"></div>
+                    </div>
+                    <div class="user_info_details mt-1 text-gray-600 text-sm text-center">
+                        <div id="info_name"></div>
+                        <div id="info_contact"></div>
+                    </div>
+                </div>
+            </a>
+            <!-- Danh mục Sidebar -->
+            <ul class="mt-3">
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/Index" class="block p-2 hover:text-red-500">Quản lý tin đăng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/NguoiDung" class="block p-2 hover:text-red-500">Quản lý người dùng</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/QuanLy/ThongTinTaiKhoan" class="block p-2 hover:text-red-500">Sửa thông tin tài khoản</a></li>
+                <li class="border-b border-b-opacity-0 transition-all hover:border-gray-200 hover:bg-gray-200"><a href="~/NguoiDung/DangXuat" class="block p-2 hover:text-red-500">Thoát</a></li>
+                <!-- Thêm các mục danh mục khác nếu cần -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Content Section -->
+    <div class="content flex-grow  w-full">
+        <section id="tbay-breadcrumb" class="bg-rose-200 py-2 hidden md:flex mt-3">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-center h-full">
+                    <ol class="flex breadcrumb p-0 m-0">
+                        <li><a href="TrangChu.html" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm">Trang chủ</a></li>
+                        <li class="mx-1">
+                            <span class="content-slash px-2 text-black text-sm">/</span>
+                        </li>
+                        <li><a href="trangtintuc.html" class="text-black hover:text-red-500 font-Montserrat hover:no-underline text-sm font-semibold">Quản lý tài khoản</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <h1 class="text-2xl font-bold mb-4 mt-3 ml-5">Quản lý tài khoản</h1>
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center space-x-2">
+                <label class="ml-2 text-sm">Hiển thị:</label>
+                <select id="roleFilter" class="p-2 border rounded-md bg-white">
+                    <option value="1">Tất cả</option>
+                    <option value="LTK00001">Quản lý</option>
+                    <option value="LTK00003">Người tìm trọ</option>
+                    <option value="LTK00002">Chủ trọ</option>
+                </select>
+            </div>
+            <div class="space-x-2">
+                <button class="btn btn-primary text-sm" id="addAccountBtn">Thêm tài khoản</button>
+                <button class="btn btn-primary text-sm" id="lockAccountBtn">Khóa tài khoản</button>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <div id="partialContainer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#roleFilter").change(function () {
+            var selectedValue = $(this).val();
+            loadPartialView(selectedValue);
+        });
+    });
+
+    function loadPartialView(maLTK) {
+        $.ajax({
+            url: '/QuanLy/getTaiKhoan',
+            type: 'GET',
+            data: { maLTK: maLTK },
+            success: function (result) {
+                $("#partialContainer").html(result);
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi gọi action.');
+            }
+        });
+    }
+</script>
+
+<!-- Add this script block after your existing script -->
+<script>
+    $(document).ready(function () {
+        $("#addAccountBtn").click(function () {
+            window.location.href = '/QuanLy/ThemTaiKhoan';
+        });
+    });
+</script>
+
+
+

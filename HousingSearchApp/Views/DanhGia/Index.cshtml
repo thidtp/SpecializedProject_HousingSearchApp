@@ -1,0 +1,179 @@
+﻿@model List<HousingSearchApp.Models.DANHGIA_DTO>
+<!-- Ô văn bản để ghi nội dung bình luận -->
+<input type="hidden" id="maPhongHidden" value="@ViewBag.MaPhong" />
+<input type="hidden" id="maNDHidden" value="@System.Web.HttpContext.Current.Session["MaNguoiDung"]" />
+<textarea id="commentInput" class="w-full h-32 px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Nhập nội dung bình luận"></textarea>
+
+<!-- Đánh giá 5 ngôi sao -->
+<div class="flex items-center mt-2 space-x-2">
+    <p>Đánh giá : </p>
+    <span class="text-2xl cursor-pointer" onclick="rate(1)" id="star1">&#9733;</span>
+    <span class="text-2xl cursor-pointer" onclick="rate(2)" id="star2">&#9733;</span>
+    <span class="text-2xl cursor-pointer" onclick="rate(3)" id="star3">&#9733;</span>
+    <span class="text-2xl cursor-pointer" onclick="rate(4)" id="star4">&#9733;</span>
+    <span class="text-2xl cursor-pointer" onclick="rate(5)" id="star5">&#9733;</span>
+</div>
+
+<!-- Nút Bình luận -->
+<button onclick="themBinhLuan()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Bình luận</button>
+<div style=" height: auto;">
+    @foreach (var danhGia in Model)
+    {
+        <div class="mt-8 border p-4 rounded commentSection">
+            <!-- Mỗi phần bình luận hoặc thông báo -->
+            <div class="flex items-start mb-4">
+                <!-- Ảnh đại diện -->
+                <div class="rounded-full overflow-hidden w-12 h-12">
+                    <img src="~/Image/DuLieu/NguoiDung/@danhGia.tenFileAnh" alt="Avatar" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Thông tin người dùng và đánh giá -->
+                <div class="ml-4 flex-grow">
+                    <!-- Tên người dùng và đánh giá ngôi sao -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-bold">@danhGia.tenNguoiDung</p>
+                            <div class="flex items-center space-x-2 mt-1">
+                                @for (int i = 0; i < danhGia.DanhGia; i++)
+                                {
+                                    <span class="text-2xl text-yellow-500">&#9733;</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <button class="text-gray-600 focus:outline-none optionsButton" onclick="toggleOptionsDropdown(this)">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Nút tùy chọn hiển thị khi nhấp vào nút optionsButton -->
+                            <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg optionsDropdown invisible">
+                                <button class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" data-ma-dgphong="@danhGia.MADGphong" onclick="xoaBinhLuan(this)">Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nội dung bình luận -->
+                    <p class="mt-2" id="commentContent">@danhGia.BinhLuan.</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- Phần bình luận đã có -->
+
+<p id="noCommentMessage" class="text-gray-500">Chưa có ai bình luận.</p>
+<script>
+    let currentRating = 0;
+    // Hàm để xử lý đánh giá ngôi sao
+    function rate(stars) {
+        // Đặt tất cả các ngôi sao thành màu đen trước
+        for (let i = 1; i <= 5; i++) {
+            const star = document.getElementById(`star${i}`);
+            star.classList.remove('text-yellow-500');
+        }
+
+        // Tô màu vàng cho số lượng ngôi sao tương ứng
+        for (let i = 1; i <= stars; i++) {
+            const star = document.getElementById(`star${i}`);
+            star.classList.add('text-yellow-500');
+        }
+        currentRating = stars;
+    }
+    function toggleOptionsDropdown(button) {
+        const dropdown = button.nextElementSibling;
+        dropdown.classList.toggle("invisible");
+    }
+</script>
+<script>
+    function checkComments() {
+        const commentContainers = document.querySelectorAll(".commentSection");
+        const noCommentMessage = document.getElementById("noCommentMessage");
+
+        if (commentContainers.length === 0) {
+            noCommentMessage.style.display = "block";
+        } else {
+            noCommentMessage.style.display = "none";
+        }
+    }
+
+    window.onload = checkComments;
+
+</script>
+<script>
+    function themBinhLuan() {
+        if (!isUserLoggedIn()) {
+            window.location.href = "/NguoiDung/DangNhap";
+            return;
+        }
+        var commentInput = document.getElementById("commentInput").value;
+        var starsRating = currentRating;
+        var userId = $("#maNDHidden").val();
+        var roomId = $("#maPhongHidden").val();
+        $.ajax({
+            type: "POST",
+            url: "/DanhGia/ThemBinhLuan",
+            data: {
+                binhluan: commentInput,
+                danhgia: starsRating,
+                maNguoiDung: userId,
+                maPhong: roomId
+            },
+            success: function (response) {
+                console.log("commentInput:", data);
+                $("#commentSection").html(response);
+                checkComments();
+
+            },
+            error: function (error) {
+                console.error("Lỗi khi thêm bình luận: " + error);
+                alert("Không thêm được bình luận.");
+            }
+        });
+    }
+    function isUserLoggedIn() {
+        var isLoggedInSession = "@System.Web.HttpContext.Current.Session["DangNhapThanhCong"]";
+        return isLoggedInSession === "true";
+    }
+</script>
+<script>
+    function xoaBinhLuan(button) {
+        if (!isUserLoggedIn()) {
+            window.location.href = "/NguoiDung/DangNhap";
+            return;
+        }
+        var madgphong = button.getAttribute("data-ma-dgphong");
+        var url = "/DanhGia/XoaBinhLuan?madgphong=" + madgphong;
+
+        fetch(url, {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                try {
+                    console.log(data);
+                    if (data.success) {
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+                    }
+                } catch (error) {
+                    console.error('Error in .then:', error);
+                }
+            })
+
+
+            .catch(error => {
+                // Xử lý lỗi nếu có
+                console.error('Error:', error);
+                alert("Xóa không thành công");
+            });
+    }
+    function isUserLoggedIn() {
+    var isLoggedInSession = "@System.Web.HttpContext.Current.Session["DangNhapThanhCong"]";
+    return isLoggedInSession === "true";
+    }
+</script>
+
+
+

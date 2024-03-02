@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="phongLienQuan.css">
+  <link rel="stylesheet" href="TrangChu.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="~/Content/TrangChu.css">
+  <link rel="stylesheet" href="~/Content/pagination.css">
+  <link rel="stylesheet" href="~/Content/RoomSlider.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+          integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+          crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/df9599f1db.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.7.1/i18next.min.js"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+ 
+
+  
+
+
+</head>
+<body>
+  <div class="slider_product">
+    <button id="prev" class="btn">
+        <i class="las la-angle-left"></i>
+    </button>
+    <div class="card-content flex space-x-4 overflow-x-auto">
+        <!-- Card 1 -->
+        <a href="#">
+          <div class="card-container">
+            <div class="card bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-250 ease-in hover:transform hover:-translate-y-2 hover:shadow-lg">
+              <div class="card-img">
+                <img src="/Image/phong1.jpg" alt="Card Image" class="w-full">
+              </div>
+              <div class="card-text p-2 mt-5">
+                <h4 class="text-xl font-bold mb-4"  style="margin-top: 200px;">Card Title ádsdsjdksjkdjskjdsjkdjks</h4>
+                <i class="lar la-heart absolute right-0 top-0 p-4 text-2xl"></i>
+                <p><i class="fas fa-money-bill-alt"></i> 1000000đ</p>
+                <p><i class="fas fa-map-marker-alt"></i> @item.DiaChi</p>
+                <p><i class="fas fa-home"></i> @item.TenLoaiPhong</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="card-container">
+            <div class="card bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-250 ease-in hover:transform hover:-translate-y-2 hover:shadow-lg">
+              <div class="card-img">
+                <img src="/Image/phong1.jpg" alt="Card Image" class="w-full">
+              </div>
+              <div class="card-text p-2 mt-5">
+                <h4 class="text-xl font-bold mb-4 card-title"  style="margin-top: 200px;">Card Title ádsdsjdksjkdjskjdsjkdjks</h4>
+                <i class="lar la-heart absolute right-0 top-0 p-4 text-2xl"></i>
+                <p><i class="fas fa-money-bill-alt"></i> 1000000đ</p>
+                <p><i class="fas fa-map-marker-alt"></i> @item.DiaChi</p>
+                <p><i class="fas fa-home"></i> @item.TenLoaiPhong</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="card-container">
+            <div class="card bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-250 ease-in hover:transform hover:-translate-y-2 hover:shadow-lg">
+              <div class="card-img">
+                <img src="/Image/phong1.jpg" alt="Card Image" class="w-full">
+              </div>
+              <div class="card-text p-2 mt-5">
+                <h4 class="text-xl font-bold mb-4 card-title"   style="margin-top: 200px;">Card Title ádsdsjdksjkdjskjdsjkdjks</h4>
+                <i class="lar la-heart absolute right-0 top-0 p-4 text-2xl"></i>
+                <p><i class="fas fa-money-bill-alt"></i> 1000000đ</p>
+                <p><i class="fas fa-map-marker-alt"></i> @item.DiaChi</p>
+                <p><i class="fas fa-home"></i> @item.TenLoaiPhong</p>
+              </div>
+            </div>
+          </div>
+        </a>
+    </div>
+    <button id="next" class="btn">
+        <i class="las la-angle-right"></i>
+    </button>
+  </div>
+  <script>
+    const next = document.querySelector('#next');
+    const prev = document.querySelector('#prev');
+
+    function handleScrollNext(direction) {
+      const cards = document.querySelector('.card-content');
+      cards.scrollLeft = cards.scrollLeft += window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+    }
+
+    function handleScrollPrev(direction) {
+      const cards = document.querySelector('.card-content');
+      cards.scrollLeft = cards.scrollLeft -= window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+    }
+
+    next.addEventListener('click', handleScrollNext);
+    prev.addEventListener('click', handleScrollPrev);
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const titleElements = document.querySelectorAll('.card-title');
+        const maxLength = 20;
+
+        titleElements.forEach(function (titleElement) {
+            if (titleElement.innerText.length > maxLength) {
+                titleElement.innerText = titleElement.innerText.substring(0, maxLength) + '...';
+            }
+        });
+    });
+</script>
+  
+</body>
+</html>

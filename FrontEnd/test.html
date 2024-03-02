@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="login_register.js"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="wrapper" class = 'wrapper'>
+        <div class="from-box-login login" >
+            <h1>Đăng Nhập</h1>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn">Đăng Nhập</button>
+                <div class="login-register">
+                    <p>Đã có tài khoản ? <a href="#"
+                    id="register-link">Đăng Ký</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="from-box-register register " >
+            <h1>Đăng Ký</h1>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                    <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Tôi đồng ý với tất cả điều khoản trên </label>
+                </div>
+                <button type="submit" class="btn">Đăng Ký</button>
+                <div class="login-register">
+                    <p>Đã có tài khoản? <a href="#"
+                    id="login-link">Đăng Nhập</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

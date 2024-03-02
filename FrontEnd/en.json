@@ -1,0 +1,24 @@
+{
+    "districts": {
+      "79": [
+        { "id": 1, "name": "Quận 1" },
+        { "id": 2, "name": "Quận 2" },
+        { "id": 3, "name": "Quận 3" }
+      ],
+      "1": [
+        { "id": 4, "name": "Quận Ba Đình" },
+        { "id": 5, "name": "Quận Hoàn Kiếm" }
+      ]
+    },
+    "wards": {
+      "1": [
+        { "id": 101, "name": "Phường Bến Thành" },
+        { "id": 102, "name": "Phường Cầu Kho" }
+      ],
+      "2": [
+        { "id": 103, "name": "Phường Thảo Điền" },
+        { "id": 104, "name": "Phường An Phú" }
+      ]
+    }
+  }
+  

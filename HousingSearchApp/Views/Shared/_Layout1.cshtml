@@ -1,0 +1,893 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link rel="stylesheet" href="~/Content/pagination.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/phongLienQuan.css")">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/df9599f1db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.7.1/i18next.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.20/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Thêm CDN của Bootstrap và jQuery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</head>
+<body class="font-Montserrat">
+    <div class="relative">
+        <div class="header-container relative top-0 left-0 w-full bg-rose-400 z-50 transition-all duration-300 ease-in-out">
+            <!-- ... Nội dung của header ... -->
+            <header>
+                <!-- component -->
+                <div class="flex flex-wrap place-items-start">
+                    <section class="relative mx-auto">
+                        <!-- navbar header top -->
+                        <nav class="flex justify-between text-white">
+                            <div class="px-5 xl:px-12 py-md-1 mr-200 flex items-center">
+                                <ul class="hidden md:flex px-1 mr-auto font-semibold font-heading space-x-10 "></ul>
+                                <a class="text-3xl font-bold font-heading mr-120" href="~/Home/Home">
+                                    <div class="flex items-center ">
+                                        <img class="w-25 h-35" src="~/Image/Web/logo.png">
+                                    </div>
+                                </a>
+                                <!-- Nav Links -->
+                                <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12 "></ul>
+                                <!-- Header Icons -->
+                                <div class="hidden md:flex items-center space-x-5 items-center mr-auto">
+                                    <!-- Sign In / Register      -->
+                                    <div class="hidden md:flex items-center space-x-5 items-center mr-auto relative" id="navbar">
+                                        <a class="hover:text-gray-200" href="/NguoiDung/DangNhap" id="iconLink">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </a>
+                                        <!-- Hiển thị khi đã đăng nhập -->
+                                        <div class="group relative" id="userDropdown">
+                                            <div class="flex items-center cursor-pointer" onclick="toggleDropdown()">
+                                                <div class="w-8 h-8 bg-gray-500 rounded-full overflow-hidden">
+                                                    <!-- Avatar hoặc biểu tượng người dùng -->
+                                                    <img src="~/Image/DuLieu/NguoiDung/@System.Web.HttpContext.Current.Session["TenFileAnh"]" alt="Hình đại diện người dùng" class="h-full w-full">
+                                                </div>
+                                                <span class="ml-2">@System.Web.HttpContext.Current.Session["TenNguoiDung"]</span>
+                                            </div>
+                                            <!-- Hiển thị khi nhấp vào hình tròn tài khoản -->
+                                            <div class="absolute hidden bg-white rounded-md shadow-lg right-0 mt-2 w-64 z-50" id="userDropdownOptions">
+                                                @{
+                                                    var loaitk = System.Web.HttpContext.Current.Session["LoaiTK"] as string;
+                                                    var loaiTKToCompare = "LTK00001";
+
+                                                    if (loaitk != null && loaitk.Equals(loaiTKToCompare, StringComparison.OrdinalIgnoreCase))
+                                                    {
+                                                        <a href="~/TinTuc/DangTinTuc" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
+                                                            </svg>
+                                                            Đăng tin
+                                                        </a>
+                                                        <a href="~/QuanLy/QuanLyTinDang" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                            </svg>
+                                                            Quản lý tin đăng
+                                                        </a>
+                                                        <a href="~/QuanLy/ThongTinTaiKhoan" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                                            </svg>
+                                                            Thông tin tài khoản
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="~/NguoiDung/DangTin" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
+                                                            </svg>
+                                                            Đăng tin
+                                                        </a>
+                                                        <a href="~/NguoiDung/QuanLyTinDang" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                            </svg>
+                                                            Quản lý tin đăng
+                                                        </a>
+                                                        <a href="~/NguoiDung/ThongTinTaiKhoan" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                                            </svg>
+                                                            Thông tin tài khoản
+                                                        </a>
+                                                    }
+                                                }
+                                                <a href="~/NguoiDung/DangXuat" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                    Đăng xuất
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="flex items-center hover:text-gray-200" href="~/DangTin/Index">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -1 30 30" stroke="currentColor">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier"><path clip-rule="evenodd" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path></g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Responsive navbar -->
+                            <div class="md:hidden flex items-center space-x-5 justify-center w-full">
+                                <a class="hover:text-gray-200" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </a>
+                                <!-- Sign in -->
+                                <div class="flex items-center space-x-5 items-center mr-auto relative" id="navbar">
+                                    <a class="hover:text-gray-200" href="#" id="iconLink-mobile">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </a>
+                                    <!-- Hiển thị khi đã đăng nhập -->
+                                    <div class="group relative" id="userDropdown-mobile">
+                                        <div class="flex items-center cursor-pointer" onclick="toggleDropdown()">
+                                            <div class="w-8 h-8 bg-gray-500 rounded-full overflow-hidden">
+                                                <!-- Avatar hoặc biểu tượng người dùng -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                                </svg>
+                                            </div>
+                                            <span class="ml-2">Tên tài khoản</span>
+                                        </div>
+                                        <!-- Hiển thị khi nhấp vào hình tròn tài khoản -->
+                                        <div class="absolute hidden bg-white rounded-md shadow-lg right-0 mt-2 w-64 z-50" id="userDropdownOptions">
+                                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
+                                                </svg>
+                                                Đăng tin
+                                            </a>
+                                            @{
+                                                var loaitk1 = System.Web.HttpContext.Current.Session["LoaiTK"] as string;
+                                                var loaiTKToCompare1 = "LTK00001";
+
+                                                if (loaitk1 != null && loaitk1.Equals(loaiTKToCompare1, StringComparison.OrdinalIgnoreCase))
+                                                {
+                                                    <a href="~/QuanLy/Index" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        Quản lý tin đăng
+                                                    </a>
+                                                    <a href="~/QuanLy/ThongTinTaiKhoan" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                                        </svg>
+                                                        Thông tin tài khoản
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="~/NguoiDung/Index" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        Quản lý tin đăng
+                                                    </a>
+                                                    <a href="~/NguoiDung/ThongTinTaiKhoan" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                                        </svg>
+                                                        Thông tin tài khoản
+                                                    </a>
+                                                }
+                                            }
+                                            <a href="~/NguoiDung/DangXuat" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                                Đăng xuất
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Đăng tin -->
+                                <a class="hover:text-gray-200" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 -1 30 30" stroke="currentColor">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier"><path clip-rule="evenodd" d="M26.8908 3.63751C27.4296 2.02234 25.8325 0.515487 24.2514 1.14736L23.7584 1.34438L2.05498 8.09216C0.775656 8.48991 0.61966 10.236 1.80825 10.8539L11.8128 16.0544C11.8453 16.0712 11.8781 16.0868 11.9113 16.1011C11.9255 16.1337 11.9408 16.166 11.9574 16.1978L17.1625 26.1935C17.7809 27.381 19.5286 27.2252 19.9267 25.947L26.6579 4.33542L26.8908 3.63751ZM4.2732 9.49616C4.10263 9.54919 4.08185 9.78221 4.24034 9.8646L12.281 14.0443C12.3584 14.0845 12.453 14.0699 12.5146 14.0083L22.2205 4.31105C22.3683 4.16341 22.2193 3.91657 22.0198 3.97859L4.2732 9.49616ZM18.5213 23.7312C18.4682 23.9016 18.2354 23.9224 18.153 23.7641L13.9694 15.7303C13.9291 15.6529 13.9437 15.5582 14.0055 15.4965L23.7117 5.79893C23.8594 5.65131 24.1061 5.80048 24.044 5.99989L18.5213 23.7312Z" fill="#ffffff" fill-rule="evenodd"></path></g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </nav>
+                    </section>
+                    <sectiSystem.StackOverflowExceptionon class="relative mx-auto">
+                        <!-- navbar 2 -->
+                        <nav class="flex justify-between  text-white w-screen">
+                            <div class="px-5 xl:px-12 py-md-3 flex w-full items-center">
+                                <!-- Nav Links -->
+                                <ul class="hidden md:flex px-4 mx-auto font-heading space-x-12 justify-center text-2xl">
+                                    <li><a class="hover:text-gray-200" href="~/Home/Home">Trang Chủ</a></li>
+                                    <li><a class="hover:text-gray-200" href="~/PhongTro/Index">Phòng Trọ</a></li>
+                                    <li><a class="hover:text-gray-200" href="~/NhaNguyenCan/Index">Nhà Nguyên Căn</a></li>
+                                    <li><a class="hover:text-gray-200" href="~/ChungCuAndCanHo/Index">Chung Cư & Căn Hộ</a></li>
+                                    <li><a class="hover:text-gray-200" href="~/OGhep/Index">Ở Ghép</a></li>
+                                    <li><a class="hover:text-gray-200" href="~/TinTuc/Index">Tin Tức</a></li>
+                                    <li id="manageSection"><a class="hover:text-gray-200" href="~/QuanLy/Index">Quản Lý</a></li>
+                                </ul>
+                            </div>
+                            <!-- Responsive navbar -->
+                            <!-- Nội dung menu mobile -->
+                            <div id="contentMenuMobile" class="md:hidden flex-col justify-center items-center w-screen h-screen bg-blue-900 text-white fixed top-0 left-0 transform translate-x-full transition-transform ">
+                                <button id="closeMenu" class="absolute top-3 right-3 text-white hover:text-gray-200 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                                <div id="logoMobile" class="mb-3">
+                                    <a class="navbar-brand" href="#">
+                                        <img src="~/Image/Web/logo.png" class="w-20 h-20" alt="Logo">
+                                    </a>
+                                </div>
+                                <ul class="p-0 text-center">
+                                    <li><a href="~/Home/Home" class="block py-3 hover:text-gray-200">Trang Chủ</a></li>
+                                    <li><a href="~/PhongTro/Index" class="block py-3 hover:text-gray-200">Phòng Trọ</a></li>
+                                    <li><a href="~/NhaNguyenCan/Index" class="block py-3 hover:text-gray-200">Nhà Nguyên Căn</a></li>
+                                    <li><a href="~/ChungCuAndCanHo/Index" class="block py-3 hover:text-gray-200">Chung Cư & Căn Hộ</a></li>
+                                    <li><a href="~/OGhep/Index" class="block py-3 hover:text-gray-200">Ở Ghép</a></li>
+                                    <li><a href="~/TinTuc/Index" class="block py-3 hover:text-gray-200">Tin Tức</a></li>
+                                    <li id="manageSectionMobile"><a href="~/QuanLy/Index" class="block py-3 hover:text-gray-200">Quản Lý</a></li>
+                                </ul>
+                            </div>
+                            <button id="openMenu" class="text-white hover:text-gray-200 md:hidden" style="margin-right: 107px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                                </svg>
+                            </button>
+                            <button id="openRightMenu" class="hidden text-white hover:text-gray-200 md:hidden ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6h-7M20 12h-7M20 18h-7"></path>
+                                </svg>
+                            </button>
+                        </nav>
+                    </sectiSystem.StackOverflowExceptionon>
+                </div>
+            </header>
+        </div>
+    </div>
+    <main class="max-w-[13	00px] mx-auto">
+        @RenderBody()
+    </main>
+    <footer class="bg-black text-white" ,style=" position: sticky">
+        <div class="relative mt-16 ">
+            <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+                    <div class="gap-8 lg:col-span-4 md:grid-cols-4 font-Montserrat text-sm grid md:grid-cols-2">
+                        <div>
+                            <h1 class="text-lg">Về Chúng Tôi</h1>
+                            <p class="text-gray-400">Trang web này cung cấp dịch vụ đăng tin chia sẻ thông tin về các căn phòng, nhà ở và văn phòng cho thuê mà không đòi hỏi bất kỳ khoản phí nào. Mục tiêu của chúng tôi là kết nối trực tiếp người thuê và người cho thuê mà không cần thông qua bất kỳ sự trung gian môi giới nào. </p>
+                        </div>
+                        <div>
+                            <h1 class="text-lg">Thông Tin Liên Hệ</h1>
+                            <p class="text-gray-400">Tel : 012.5782.401 <br> Email : nhatro@gmail.com </p>
+                        </div>
+                        <div>
+                            <h1 class="text-lg">Về NhaTro.com</h1>
+                            <ul>
+                                <a href="~/Home/Index">
+                                <li class="text-gray-400">Trang Chủ</li></a>
+                                <a href="~/PhongTro/Index">
+                                <li class="text-gray-400">Phòng Trọ</li></a>
+                                <a href="~/NhaNguyenCan/Index">
+                                <li class="text-gray-400">Nhà Nguyên Căn</li></a>
+                                <a href="ChungCuAndCanHo">
+                                <li class="text-gray-400">Chung Cư & Căn Hộ</li></a>
+                                <a href="~/OGhep/Index">
+                                <li class="text-gray-400">Ở Ghép</li></a>
+                                <a href="~/TinTuc/Index">
+                                <li class="text-gray-400">Tin Tức</li></a>
+                            </ul>
+                        </div>
+                        <div class="md:max-w-md">
+                            <div class="wpb_wrapper">
+                                <p><a href="http://online.gov.vn/Home/WebDetails/70799?AspxAutoDetectCookieSupport=1"><img class="alignright wp-image-283" src="https://ebook.comicola.com/wp-content/uploads/2021/05/20150827110756-dathongbao-1-555x211-1.png" alt="" width="164" height="62"></a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+                    <p class="text-sm text-gray-100">
+                        © Copyright 2020 Lorem Inc. All rights reserved.
+                    </p>
+                    <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+                        <a href="/"
+                           class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400" style="color: white;text-decoration: none;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="/"
+                           class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400" style="color: white;text-decoration: none;">
+                            <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+                                <circle cx="15" cy="15" r="4"></circle>
+                                <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="/"
+                           class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400" style="color: white;text-decoration: none;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button id="scrollToTop" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@16.2.2/distribute/nouislider.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    @Scripts.Render("~/Scripts/js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        document.getElementById('scrollToTop').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        const headerContainer = document.querySelector('.header-container');
+        let isHeaderSticky = false;
+
+        window.addEventListener('scroll', () => {
+            console.log('Scroll Y:', window.scrollY);
+            if (window.scrollY > 0 && !isHeaderSticky) {
+                console.log('Sticky Header Activated');
+                headerContainer.classList.remove('bg-rose-400', 'text-black');
+                headerContainer.classList.add('bg-rose-400', 'text-black', 'shadow-light');
+                isHeaderSticky = true;
+            } else if (window.scrollY === 0 && isHeaderSticky) {
+                console.log('Sticky Header Deactivated');
+                headerContainer.classList.remove('bg-rose-400', 'text-black');
+                headerContainer.classList.add('bg-rose-400', 'text-black');
+                isHeaderSticky = false;
+            }
+        });
+    </script>
+    <script>
+        const openMenuButton = document.getElementById('openMenu');
+        const closeMenuButton = document.getElementById('closeMenu');
+        const openRightMenuButton = document.getElementById('openRightMenu');
+        const contentMenuMobile = document.getElementById('contentMenuMobile');
+
+        openMenuButton.addEventListener('click', () => {
+            contentMenuMobile.classList.remove('transform', 'translate-x-full');
+            openRightMenuButton.classList.remove('hidden');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            contentMenuMobile.classList.add('transform', 'translate-x-full');
+            openRightMenuButton.classList.add('hidden');
+        });
+
+        openRightMenuButton.addEventListener('click', () => {
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var login = checkIfLoggedIn();
+            var isAdmin = false;
+            loaiTaiKhoan = "LTK00001";
+            if (login) {
+                if (loaiTaiKhoan == "@System.Web.HttpContext.Current.Session["LoaiTK"]") {
+                    return isAdmin === "true";
+                }
+            }
+            const manageSection = document.getElementById("manageSection");
+            const manageSectionMobile = document.getElementById("manageSectionMobile");
+
+            if (!isAdmin) {
+                manageSection.style.display = "none";
+                manageSectionMobile.style.display = "none";
+            }
+        });
+    </script>
+    <script>
+        let currentSlide = 0;
+        const slideWidth = 300;
+        const marginBetweenColumns = 50;
+
+        function showSlide(index) {
+            const container = document.getElementById('news-wrapper');
+            const translateValue = -(index * (slideWidth + marginBetweenColumns));
+            container.style.transform = `translateX(${translateValue}px)`;
+            currentSlide = index;
+            updateButtonVisibility();
+        }
+
+        function prevSlide() {
+            currentSlide = Math.max(currentSlide - 1, 0);
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            const totalSlides = document.querySelectorAll('#news-wrapper > div').length;
+
+            // Kiểm tra xem có thể tiến lên được không
+            if (currentSlide < totalSlides - 3) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function updateButtonVisibility() {
+            const nextButton = document.querySelector(".absolute .focus\\:outline-none ~ .focus\\:outline-none");
+            const totalSlides = document.querySelectorAll('#news-wrapper > div').length;
+
+            // Ẩn nút next ở cột cuối cùng
+            if (currentSlide === totalSlides - 1) {
+                nextButton.style.visibility = "hidden";
+            } else {
+                nextButton.style.visibility = "visible";
+            }
+        }
+
+        // Hiển thị tin tức đầu tiên khi trang web được tải
+        showSlide(currentSlide);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Kiểm tra xem trạng thái đăng nhập đã được đặt hay chưa
+            var isLoggedIn = checkIfLoggedIn();
+
+            // Lấy các phần tử DOM cần thiết
+            var iconLink = document.getElementById('iconLink');
+            var userDropdown = document.getElementById('userDropdown');
+            var iconLinkMobile = document.getElementById('iconLink-mobile');
+            var userDropdownMobile = document.getElementById('userDropdown-mobile');
+            var userAvatar = document.getElementById('userAvatar');
+            var accountName = document.getElementById('accountName');
+            userDropdown.classList.add('hidden');
+            userDropdownMobile.classList.add('hidden');
+
+            // Nếu đã đăng nhập, hiển thị thông tin người dùng và ẩn biểu tượng, hiển thị menu người dùng
+            if (isLoggedIn) {
+                displayUserInfo();
+            } else {
+                userAvatar.innerHTML = `<img src=~/Image/DuLieu/NguoiDung/"${avatar}" alt="Hình đại diện người dùng" class="h-full w-full">`;
+                accountName.innerText = username;
+                    // Nếu chưa đăng nhập, hiển thị biểu tượng và ẩn menu người dùng
+                    iconLink.style.display = 'block';
+                    userDropdown.classList.add('hidden');
+                    iconLinkMobile.style.display = 'block';
+                    userDropdownMobile.classList.add('hidden');
+            }
+        });
+
+        function checkIfLoggedIn() {
+                var isLoggedInSession = "@System.Web.HttpContext.Current.Session["DangNhapThanhCong"]";
+                return isLoggedInSession === "true";
+        }
+        function displayUserInfo() {
+            iconLink.style.display = 'none';
+            userDropdown.classList.remove('hidden');
+            iconLinkMobile.style.display = 'none';
+            userDropdownMobile.classList.remove('hidden');
+            localStorage.setItem("DangNhapThanhCong", "false");
+        }
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById('userDropdownOptions');
+            var dropdown1 = document.getElementById('userDropdownOptions-mobile');
+            dropdown.classList.toggle('hidden');
+            dropdown1.classList.toggle('hidden');
+        }
+        updateNavbar();
+    </script>
+    <script>
+    function loadWards() {
+    var districtId = $(".districtSelect1").val();
+    if (districtId) {
+            $.ajax({
+                url: '@Url.Action("getPhuongXa", "Home")',
+                type: 'GET',
+                data: { maQuanHuyen: districtId },
+                success: function (data) {
+                    $('.wardSelect1').html('<option value="" disabled selected>Chọn Phường/Xã</option>' + data);
+                },
+                error: function () {
+                    console.log('Error loading wards.');
+                }
+            });
+    }
+    else {
+            $('.wardSelect').html('<option value="" disabled selected>Chọn Phường/Xã</option>');
+        }
+    }
+    </script>
+    <script>
+        const pagination = document.querySelector('.pagination')
+
+        if (pagination) {
+            const paginationNumbers = document.querySelectorAll('.pagination__number')
+            let paginationActiveNumber = document.querySelector('.pagination__number--active')
+            const paginationNumberIndicator = document.querySelector('.pagination__number-indicator')
+            const paginationLeftArrow = document.querySelector('.pagination__arrow:not(.pagination__arrow--right)')
+            const paginationRightArrow = document.querySelector('.pagination__arrow--right')
+
+            const postionIndicator = (element) => {
+                const paginationRect = pagination.getBoundingClientRect()
+                const paddingElement = parseInt(window.getComputedStyle(element, null).getPropertyValue('padding-left'), 10)
+                const elementRect = element.getBoundingClientRect()
+                paginationNumberIndicator.style.left = `${elementRect.left + paddingElement - paginationRect.left}px`
+                paginationNumberIndicator.style.width = `${elementRect.width - paddingElement * 2}px`
+                if (element.classList.contains('pagination__number--active')) {
+                    paginationNumberIndicator.style.opacity = 1
+                } else {
+                    paginationNumberIndicator.style.opacity = .2
+                }
+            }
+
+            const setActiveNumber = (element) => {
+                if (element.classList.contains('pagination__number--active')) return
+                element.classList.add('pagination__number--active')
+                paginationActiveNumber.classList.remove('pagination__number--active')
+                paginationActiveNumber = element
+                setArrowState()
+            }
+
+            const disableArrow = (arrow, disable) => {
+                if (
+                    (!disable && !arrow.classList.contains('pagination__arrow--disabled')) ||
+                    (disable && arrow.classList.contains('pagination__arrow--disabled'))
+                )
+                    return
+                if (disable) {
+                    arrow.classList.add('pagination__arrow--disabled')
+                } else {
+                    arrow.classList.remove('pagination__arrow--disabled')
+                }
+            }
+
+            const setArrowState = () => {
+                const previousElement = paginationActiveNumber.previousElementSibling
+                const nextElement = paginationActiveNumber.nextElementSibling
+                if (previousElement.classList.contains('pagination__number')) {
+                    disableArrow(paginationLeftArrow, false)
+                } else {
+                    disableArrow(paginationLeftArrow, true)
+                }
+
+                if (nextElement.classList.contains('pagination__number')) {
+                    disableArrow(paginationRightArrow, false)
+                } else {
+                    disableArrow(paginationRightArrow, true)
+                }
+            }
+
+            paginationLeftArrow.addEventListener('click', () => {
+                setActiveNumber(paginationActiveNumber.previousElementSibling)
+                postionIndicator(paginationActiveNumber)
+            })
+
+            paginationRightArrow.addEventListener('click', () => {
+                setActiveNumber(paginationActiveNumber.nextElementSibling)
+                postionIndicator(paginationActiveNumber)
+            })
+
+            Array.from(paginationNumbers).forEach((element) => {
+                element.addEventListener('click', () => {
+                    setActiveNumber(element)
+                    postionIndicator(paginationActiveNumber)
+                })
+
+                element.addEventListener('mouseover', () => { postionIndicator(element) })
+
+                element.addEventListener('mouseout', () => { postionIndicator(paginationActiveNumber) })
+            })
+
+            postionIndicator(paginationActiveNumber)
+        }
+    </script>
+    <script>
+        var giaTriNhoNhat = 0;
+        var giaTriLonNhat = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lấy đối tượng price_range
+            var priceRange = document.getElementById('price_range');
+
+            // Lấy đối tượng price_min và price_max
+            var priceMin = document.getElementById('price_min');
+            var priceMax = document.getElementById('price_max');
+
+            // Khởi tạo noUiSlider
+            noUiSlider.create(priceRange, {
+                start: [0, 50],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 50
+                },
+                format: {
+                    to: function (value) {
+                        return value.toFixed(0);
+                    },
+                    from: function (value) {
+                        return parseFloat(value);
+                    }
+                }
+            });
+
+            priceRange.noUiSlider.on('update', function (values, handle) {
+                var value = values[handle];
+
+                if (handle === 0) {
+                    priceMin.innerHTML = value + ' triệu';
+                    giaTriNhoNhat = parseInt(value);
+                    console.log(giaTriNhoNhat);
+
+                } else {
+                    priceMax.innerHTML = value + ' triệu';
+                    giaTriLonNhat = parseInt(value);
+                    console.log(giaTriLonNhat);
+                }
+            });
+        });
+        $(document).on('click', '#searchButton3', function () {
+            var them = 1000000;
+            console.log(giaTriNhoNhat);
+            console.log(giaTriLonNhat);
+            var quanHuyen = $("#district1 option:selected").text();
+            if (quanHuyen == "Chọn Quận/Huyện") {
+                quanHuyen = null;
+            }
+
+            var phuongXa = $("#ward1 option:selected").text();
+            if (phuongXa == "Chọn Phường/Xã") {
+                phuongXa = null;
+            }
+            var maloaiPhong = $("#roomType1").val();
+            var dienTichNhoNhat = 0;
+            var dienTichLonNhat = 0;
+
+            var giaNhoNhat = giaTriNhoNhat * them;
+            var giaLonNhat = giaTriLonNhat * them;
+
+            var url = '/TimKiem/TimKiem?quanHuyen=' + quanHuyen + '&phuongXa=' + phuongXa + '&maloaiPhong=' + maloaiPhong + '&giaNhoNhat=' + giaNhoNhat + '&giaLonNhat=' + giaLonNhat + '&dienTichNhoNhat=' + dienTichNhoNhat + '&dienTichLonNhat=' + dienTichLonNhat;
+
+            window.location.href = url;
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var mainSwiper = new Swiper('.main-swiper', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 5000, // 5 giây
+                    disableOnInteraction: false,
+                },
+            });
+
+            var thumbsSwiper = new Swiper('.thumbs-swiper', {
+                slidesPerView: 3,
+                freeMode: true,
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+            });
+
+            mainSwiper.controller.control = thumbsSwiper;
+            thumbsSwiper.controller.control = mainSwiper;
+
+            thumbsSwiper.on('click', function (e) {
+                var clickedIndex = e.clickedIndex;
+                mainSwiper.slideTo(clickedIndex);
+                updateThumbnailHighlight(clickedIndex);
+            });
+
+            mainSwiper.on('slideChange', function () {
+                var activeIndex = mainSwiper.activeIndex;
+                updateThumbnailHighlight(activeIndex);
+            });
+
+            function updateThumbnailHighlight(index) {
+                // Đặt tất cả các thumbnail về trạng thái ban đầu
+                document.getElementById('thumbnail1').classList.remove('border-blue-500');
+                document.getElementById('thumbnail2').classList.remove('border-blue-500');
+                document.getElementById('thumbnail3').classList.remove('border-blue-500');
+
+                // Áp dụng khung viền cho thumbnail tương ứng với ảnh hiện tại
+                document.getElementById('thumbnail' + (index + 1)).classList.add('border-blue-500');
+            }
+        });
+    </script>
+    <script>
+        const next = document.querySelector('#next');
+        const prev = document.querySelector('#prev');
+
+        function handleScrollNext(direction) {
+            const cards = document.querySelector('.card-content');
+            cards.scrollLeft = cards.scrollLeft += window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+        }
+
+        function handleScrollPrev(direction) {
+            const cards = document.querySelector('.card-content');
+            cards.scrollLeft = cards.scrollLeft -= window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+        }
+
+        next.addEventListener('click', handleScrollNext);
+        prev.addEventListener('click', handleScrollPrev);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const titleElements = document.querySelectorAll('.card-title');
+            const maxLength = 15;
+
+            titleElements.forEach(function (titleElement) {
+                if (titleElement.innerText.length > maxLength) {
+                    titleElement.innerText = titleElement.innerText.substring(0, maxLength) + '...';
+                }
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var login = checkIfLoggedIn();
+        var isAdmin = false;
+        loaiTaiKhoan = "LTK00001";
+        if (login) {
+            if (loaiTaiKhoan == "@System.Web.HttpContext.Current.Session["LoaiTK"]") {
+                return isAdmin === "true";
+            }
+        }
+        const manageSection = document.getElementById("manageSection");
+        const manageSectionMobile = document.getElementById("manageSectionMobile");
+
+        if (!isAdmin) {
+            manageSection.style.display = "none";
+            manageSectionMobile.style.display = "none";
+        }
+    });
+    </script>
+
+    <script>
+        var nguoidung = {
+            TENND: "@Html.Raw(System.Web.HttpContext.Current.Session["TenNguoiDung"])",
+            SDT: "@Html.Raw(System.Web.HttpContext.Current.Session["SoDienThoai"])"
+        };
+        var encodedName = encodeURIComponent(nguoidung.TENND);
+        var encodedContact = encodeURIComponent(nguoidung.SDT);
+        var userData = {
+            name: decodeURIComponent(encodedName),
+            contact: decodeURIComponent(encodedContact)
+        };
+        document.getElementById("info_name").innerText = "Tên: " + userData.name;
+        document.getElementById("info_contact").innerText = "Liên hệ: " + userData.contact;
+        console.log("Name:", userData.name);
+        console.log("Contact:", userData.contact);
+
+    </script>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('[id^="tab"]').forEach(function (el) {
+                el.classList.add('hidden');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.querySelectorAll('.tab-link').forEach(function (el) {
+                el.classList.remove('border-red-500', 'border-b-2');
+            });
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('border-red-500', 'border-b-2');
+        }
+    </script>
+    <script>
+        function updateAvatarPreview(input) {
+            var avatarImg = document.getElementById('avatar-img');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    avatarImg.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleButton = document.getElementById(`toggle-${inputId}`);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = `
+                            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        `;
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = `
+                            <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        `;
+            }
+        }
+        document.getElementById('change-password-btn').addEventListener('click', function () {
+
+            document.getElementById('change-password-section').classList.remove('hidden');
+        });
+        document.getElementById('close-password-section-btn').addEventListener('click', function () {
+            document.getElementById('change-password-section').classList.add('hidden');
+        });
+        document.getElementById('update-password-btn').addEventListener('click', function () {
+            document.getElementById('change-password-section').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

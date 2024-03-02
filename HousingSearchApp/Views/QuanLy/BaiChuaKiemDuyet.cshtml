@@ -1,0 +1,85 @@
+﻿@model List<HousingSearchApp.Models.PHONG_DTO>
+@foreach (var baiDang in Model)
+ {
+    <div class="bg-white p-4 shadow-md relative w-full text-sm" data-maphong="@baiDang.MaPhong" onclick="redirectToDetail('@baiDang.MaPhong')">
+        <div class="flex">
+            <!-- Hình ảnh -->
+            <img src="~/Image/DuLieu/Phong/@baiDang.TenFileAnh" alt="Hình ảnh bài đăng 1" class="mb-2 rounded-md object-cover" style="width: 154px; height: 160px;">
+
+            <!-- Thông tin về bài đăng -->
+            <div class="ml-4 w-2/3">
+                <a href="#" class="hover:text-red-500"><h3 class="text-lg font-semibold mb-1">@baiDang.TieuDe</h3></a>
+
+                <!-- Khung chờ duyệt -->
+                <div class="flex items-center">
+                    <div class="bg-blue-500 text-white px-2 py-1 rounded-md text-xs">
+                        Chưa duyệt
+                    </div>
+                </div>
+
+                <div class="flex items-center mb-1 mt-3">
+                    <p class="text-gray-600 mr-40">
+                        <i class="fas fa-expand"></i> Diện tích: @baiDang.DienTich
+                    </p>
+                    <p class="text-gray-600 ml-5">
+                        <i class="fas fa-bed"></i> Loại phòng: @baiDang.TenLoaiPhong
+                    </p>
+                </div>
+
+                <div class="flex items-center mb-1 mt-3">
+                    <p class="text-red-500 mr-35">
+                        <i class="fas fa-money-bill-alt"></i> Giá phòng: @baiDang.GiaThue Đ/Tháng
+                    </p>
+                    <p class="text-gray-600 ml-20">
+                        <i class="fas fa-cogs"></i> Tiện ích: @baiDang.TienIch
+                    </p>
+                </div>
+
+                <p class="text-gray-600 mt-3">
+                    <i class="fas fa-map-marker-alt"></i> Địa chỉ: @baiDang.DiaChi
+                </p>
+
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 mt-20 mr-20 flex items-center">
+            <p class="text-gray-500 text-xs ml-2">Thời gian đăng: @baiDang.ThoiGianDang</p>
+        </div>
+
+        <!-- Dấu tích -->
+        <div class="absolute top-0 right-0 mt-2 mr-2 flex items-center">
+            <button class="checkbox-class cursor-pointer bg-green-500 text-white px-2 py-1 rounded-md text-xs">
+                <svg class="w-6 h-6 fill-current mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M21 7l-2-2-6 6-3-3-2 2 5 5 8-8z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+ }    
+<script>
+    var selectedRoomId;
+    $(".checkbox-class").on("click", function () {
+        selectedRoomId = $(this).closest(".bg-white").data("maphong");
+        $.ajax({
+            url: '/QuanLy/KiemDuyetPhong',
+            type: 'POST',
+            data: { maphong: selectedRoomId },
+            success: function (result) {
+                if (result.success) {
+                    alert("Duyệt thành công");
+                    window.location.href = '/QuanLy/Index';
+                } else {
+                    alert("Duyệt không thành công: " + result.message);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+<script>
+    function redirectToDetail(maPhong) {
+        window.location.href = '/QuanLy/Chitietphong?maPhong=' + maPhong;
+    }
+</script>
+

@@ -1,0 +1,107 @@
+/* Variables */
+:root {
+    --arrow-color: #3c376f;
+    --background-color: #fef8f9;
+  }
+  
+  /* Reset and Box Sizing */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background: var(--background-color);
+  }
+  
+  /* Container Styles */
+  .container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+  }
+  
+  /* Button Styles */
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 20px 5px;
+    color: var(--arrow-color);
+    font-size: 2rem;
+  }
+  
+  button span {
+    position: relative;
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .previous:hover span {
+    transform: translateX(-10px) scale(1.2);
+  }
+  
+  .next:hover span {
+    transform: translateX(10px) scale(1.2);
+  }
+  
+  /* Slider Navigation Styles */
+  .slider-nav12 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .slider-nav12 li {
+    display: flex;
+    flex: 2;
+    text-align: center;
+  }
+  
+  /* Image Styles */
+  img {
+    max-width: 100%;
+    display: none;
+    box-shadow: 10px 10px 20px 0 rgba(94, 47, 59, 0.2);
+  }
+  
+  img.active {
+    display: block;
+    animation: fadeImg 0.8s;
+  }
+  
+  /* Arrow Styles */
+  .slider-nav12 .arrow {
+    flex: 0 0 15%;
+  }
+  
+  .slider-nav12 a {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slider-nav12 span {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Animation */
+  @keyframes fadeImg {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
